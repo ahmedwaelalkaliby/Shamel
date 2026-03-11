@@ -1,0 +1,33 @@
+{
+  "HomePage": {
+    "title": "Welcome to Shamel",
+    "description": "The best platform for your needs."
+  },
+  "Navigation": {
+    "home": "Home",
+    "categories": "Categories",
+    "ads": "Ads",
+    "favorites": "Favorites",
+    "search_placeholder": "Search...",
+    "add_ad": "Add Ad",
+    "my_account": "My Account",
+    "notifications": "Notifications",
+    "search": "Search"
+  },
+  "Footer": {
+    "footer_title": "Souq Shamel",
+    "footer_about": "The best and easiest place to buy and sell anything in your country.",
+    "footer_quick_links": "Quick Links",
+    "home": "Home",
+    "ads": "Ads",
+    "categories": "Categories",
+    "favorites": "Favorites",
+    "footer_popular_categories": "Popular Categories",
+    "footer_cars": "Cars",
+    "footer_real_estate": "Real Estate",
+    "footer_mobiles": "Mobiles",
+    "footer_furniture": "Furniture",
+    "footer_follow_us": "Follow Us",
+    "footer_rights": "All Rights Reserved"
+  }
+}

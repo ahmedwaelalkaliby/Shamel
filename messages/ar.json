@@ -1,0 +1,33 @@
+{
+  "HomePage": {
+    "title": "مرحباً بك في شامل",
+    "description": "أفضل منصة لتلبية احتياجاتك."
+  },
+  "Navigation": {
+    "home": "الرئيسية",
+    "categories": "الأقسام",
+    "ads": "الإعلانات",
+    "favorites": "المفضلة",
+    "search_placeholder": "ابحث هنا...",
+    "add_ad": "أضف إعلانك",
+    "my_account": "حسابي",
+    "notifications": "الإشعارات",
+    "search": "بحث"
+  },
+  "Footer": {
+    "footer_title": "سوق شامل",
+    "footer_about": "أفضل وأسهل منصة لبيع وشراء أي شيء في بلدك.",
+    "footer_quick_links": "روابط سريعة",
+    "home": "الرئيسية",
+    "ads": "الإعلانات",
+    "categories": "الأقسام",
+    "favorites": "المفضلة",
+    "footer_popular_categories": "الأقسام الشائعة",
+    "footer_cars": "سيارات",
+    "footer_real_estate": "عقارات",
+    "footer_mobiles": "موبايلات",
+    "footer_furniture": "أثاث ديكور",
+    "footer_follow_us": "تابعنا الدعم",
+    "footer_rights": "كل الحقوق محفوظة"
+  }
+}

@@ -1,24 +1,37 @@
 "use client";
 
-import Link from "next/link";
-import { Heart, Bell, Search } from "lucide-react";
+import { Heart, Bell, Search, Globe } from "lucide-react";
 import Image from "next/image";
+import { useTranslations, useLocale } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 
 export default function Navbar() {
+    const t = useTranslations("Navigation");
+    const locale = useLocale();
+    const router = useRouter();
+    const pathname = usePathname();
+
+    const toggleLanguage = () => {
+        const nextLocale = locale === "ar" ? "en" : "ar";
+        router.replace(pathname, { locale: nextLocale });
+    };
+
     return (
         <nav className="bg-white rounded-b-2xl shadow-xl sticky top-0 z-50">
             <div className="container flex items-center justify-between p-4 mx-auto">
                 {/* Logo */}
-                <Image src="/Logo.svg" alt="Logo" width={50} height={50} />
+                <Link href="/">
+                    <Image src="/Logo.svg" alt="Logo" width={50} height={50} className="cursor-pointer" />
+                </Link>
 
                 {/* Links */}
                 <div className="hidden md:flex gap-6 font-medium">
-                    <Link href="/">الرئيسية</Link>
-                    <Link href="/categories">الأقسام</Link>
-                    <Link href="/ads">الإعلانات</Link>
-                    <Link href="/favorites" className="flex items-center gap-1">
+                    <Link href="/" className="hover:text-secondary transition-colors">{t("home")}</Link>
+                    <Link href="/categories" className="hover:text-secondary transition-colors">{t("categories")}</Link>
+                    <Link href="/ads" className="hover:text-secondary transition-colors">{t("ads")}</Link>
+                    <Link href="/favorites" className="flex items-center gap-1 hover:text-secondary transition-colors">
                         <Heart size={18} />
-                        المفضلة
+                        {t("favorites")}
                     </Link>
                 </div>
 
@@ -27,22 +40,29 @@ export default function Navbar() {
                     <Search size={18} className="text-gray-400" />
                     <input
                         type="text"
-                        placeholder="ابحث عن إعلان..."
+                        placeholder={t("search_placeholder")}
                         className="outline-none px-2 w-full bg-transparent"
                     />
                 </div>
 
                 {/* Actions */}
                 <div className="flex items-center gap-4">
+                    <button
+                        onClick={toggleLanguage}
+                        className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-secondary transition-colors"
+                    >
+                        <Globe size={18} />
+                        {locale === "ar" ? "English" : "العربية"}
+                    </button>
                     <Link
                         href="/add-ad"
                         className="hidden md:block bg-secondary text-white px-4 py-2 rounded-lg"
                     >
-                        + أضف إعلان
+                        {t("add_ad")}
                     </Link>
                     <Bell size={22} className="cursor-pointer hidden md:block" />
                 </div>
             </div>
         </nav>
     );
-}
+}

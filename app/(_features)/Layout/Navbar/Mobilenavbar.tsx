@@ -1,20 +1,21 @@
 "use client";
 
-import Link from "next/link";
+import { Link, usePathname } from "@/i18n/navigation";
 import { Bell, Search, Home } from "lucide-react";
 import { AiOutlineUser } from "react-icons/ai";
 import { IoMdAdd } from "react-icons/io";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function MobileNavbar() {
     const pathname = usePathname();
+    const t = useTranslations("Navigation");
 
     const navItems = [
-        { href: "/profile", icon: <AiOutlineUser size={30} />, label: "حسابي" },
-        { href: "/notifications", icon: <Bell size={30} />, label: "تنبيهات" },
-        { href: "/add-ad", icon: <IoMdAdd size={30} />, label: "أضف إعلان" },
-        { href: "/search", icon: <Search size={30} />, label: "البحث" },
-        { href: "/", icon: <Home size={30} />, label: "الرئيسية" },
+        { href: "/profile", icon: <AiOutlineUser size={30} />, label: t("my_account") },
+        { href: "/notifications", icon: <Bell size={30} />, label: t("notifications") },
+        { href: "/add-ad", icon: <IoMdAdd size={30} />, label: t("add_ad") },
+        { href: "/search", icon: <Search size={30} />, label: t("search") },
+        { href: "/", icon: <Home size={30} />, label: t("home") },
     ];
 
     return (
