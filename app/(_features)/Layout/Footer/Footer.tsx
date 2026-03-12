@@ -1,14 +1,14 @@
 "use client";
-
 import { Link } from "@/i18n/navigation";
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function Footer() {
     const t = useTranslations("Footer");
 
     return (
-        <footer className="bg-primary-900 text-white mt-20">
+        <footer className="bg-white text-primary-900 mt-20 pb-25 sm:pb-5 rounded-t-2xl">
 
             <div className="mx-auto container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 p-12">
 
@@ -18,7 +18,9 @@ export default function Footer() {
                         {t("footer_title")}
                     </h2>
 
-                    <p className="text-sm text-gray-300 leading-6">
+                    <Image src="./Logo.svg" alt="Logo" className="w-20 h-20" width={100} height={100} />
+
+                    <p className="text-sm text-primary-900 leading-6">
                         {t("footer_about")}
                     </p>
                 </div>
@@ -29,7 +31,7 @@ export default function Footer() {
                         {t("footer_quick_links")}
                     </h3>
 
-                    <ul className="space-y-2 text-gray-300 flex flex-col">
+                    <ul className="space-y-2 text-primary-900 flex flex-col">
                         <li>
                             <Link href="/" className="hover:text-secondary transition-colors">{t("home")}</Link>
                         </li>
@@ -54,7 +56,7 @@ export default function Footer() {
                         {t("footer_popular_categories")}
                     </h3>
 
-                    <ul className="space-y-2 text-gray-300 flex flex-col">
+                    <ul className="space-y-2 text-primary-900 flex flex-col">
                         <li>
                             <Link href="/categories/cars" className="hover:text-secondary transition-colors">{t("footer_cars")}</Link>
                         </li>
@@ -86,10 +88,10 @@ export default function Footer() {
             </div>
 
             {/* Bottom Bar */}
-            <div className="border-t border-gray-700 text-center py-4 text-sm text-gray-400">
-                © {new Date().getFullYear()} {t("footer_rights")}
+            <div className="container mx-auto border-t border-primary-800 text-center py-4 text-sm text-primary-800">
+                © <span className="text-secondary font-semibold ">{new Date().getFullYear()}</span> {t("footer_rights")}
             </div>
 
         </footer>
     );
-}
+}

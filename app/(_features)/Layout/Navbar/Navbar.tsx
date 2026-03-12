@@ -37,7 +37,7 @@ export default function Navbar() {
 
                 {/* Search */}
                 <div className="hidden lg:flex items-center border rounded-lg px-3 py-2 w-[300px] bg-white">
-                    <Search size={18} className="text-gray-400" />
+                    <Search size={18} className="text-primary-500" />
                     <input
                         type="text"
                         placeholder={t("search_placeholder")}
@@ -49,14 +49,14 @@ export default function Navbar() {
                 <div className="flex items-center gap-4">
                     <button
                         onClick={toggleLanguage}
-                        className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-secondary transition-colors"
+                        className="flex items-center gap-2 text-sm font-medium text-primary-700 hover:text-secondary cursor-pointer transition-colors"
                     >
                         <Globe size={18} />
                         {locale === "ar" ? "English" : "العربية"}
                     </button>
                     <Link
                         href="/add-ad"
-                        className="hidden md:block bg-secondary text-white px-4 py-2 rounded-lg"
+                        className="hidden md:block bg-secondary text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-secondary/80 transition-colors active:scale-95"
                     >
                         {t("add_ad")}
                     </Link>
@@ -65,4 +65,4 @@ export default function Navbar() {
             </div>
         </nav>
     );
-}
+}
