@@ -29,5 +29,23 @@
     "footer_furniture": "Furniture",
     "footer_follow_us": "Follow Us",
     "footer_rights": "Souq Shamel All Rights Reserved"
+  },
+  "Hero": {
+    "headline_main": "Advertise & Request",
+    "headline_sub": "Everything in UAE",
+    "headline_footer": "In One Place",
+    "try_it": "Try it Now",
+    "no_complexity_title": "No Complexity",
+    "one_app": "One app with everything you need",
+    "services": "Services, Buying and Selling, and Real Opportunities",
+    "feature_1": "Create your ad in one minute.",
+    "feature_2": "Your ads reach your target audience.",
+    "feature_3": "Browse ads without logging in.",
+    "feature_4": "More than 30 categories covering your needs.",
+    "feature_5": "Complete privacy for your data.",
+    "feature_6": "No hidden commissions or fees."
+  },
+  "MarketSections": {
+    "title": "Market Sections"
   }
 }
