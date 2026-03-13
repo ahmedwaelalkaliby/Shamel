@@ -23,6 +23,7 @@ export default function HeroSection() {
           height={280} 
           className="h-auto w-56 md:w-72"
           priority
+          style={{ height: 'auto' }}
         />
       </div>
 
@@ -63,7 +64,7 @@ export default function HeroSection() {
       {/* 5. Features Section */}
           {/* The container uses flex-row-reverse on desktop for RTL if needed, 
     but Tailwind's 'start' and 'end' utilities are better for i18n */}
-          <div className='flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl mx-auto gap-12 px-6 py-10 lg:py-20' dir={t("direction")}>
+          <div className='flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl mx-auto gap-12 px-6 py-10 lg:py-20' dir={isRtl ? "rtl" : "ltr"}>
 
               {/* Text Content Column */}
               {/* lg:items-start aligns to the right in Arabic and left in English */}

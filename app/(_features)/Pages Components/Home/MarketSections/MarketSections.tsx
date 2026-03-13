@@ -57,7 +57,7 @@ export default function MarketSections() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-lg font-bold text-gray-900 text-center leading-tight">
+              <span className="text-sm md:text-lg font-bold text-gray-900 text-center leading-tight">
                 {category.name}
               </span>
             </div>
