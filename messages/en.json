@@ -83,5 +83,15 @@
     "email": "Email",
     "mobile": "Mobile Number",
     "recover_btn": "Recover Account"
+  },
+  "NewPassword": {
+    "title": "Change Password",
+    "current_password": "Current Password",
+    "current_password_placeholder": "Enter current password",
+    "new_password": "New Password",
+    "new_password_placeholder": "Enter new password",
+    "confirm_password": "Confirm New Password",
+    "confirm_password_placeholder": "Re-enter new password",
+    "confirm_btn": "Confirm"
   }
 }

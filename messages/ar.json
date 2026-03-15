@@ -83,5 +83,15 @@
     "email": "البريد الإلكتروني",
     "mobile": "رقم الموبايل",
     "recover_btn": "استرداد الحساب"
+  },
+  "NewPassword": {
+    "title": "تغيير كلمة المرور",
+    "current_password": "كلمة المرور الحالية",
+    "current_password_placeholder": "ادخل كلمة المرور الحالية",
+    "new_password": "كلمة المرور الجديدة",
+    "new_password_placeholder": "ادخل كلمة المرور الجديدة",
+    "confirm_password": "إعادة كلمة المرور",
+    "confirm_password_placeholder": "أعد إدخال كلمة المرور",
+    "confirm_btn": "تأكيد"
   }
 }
