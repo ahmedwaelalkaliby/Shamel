@@ -118,7 +118,7 @@ export default function Page() {
                 
                 <div className="flex flex-col items-center gap-5">
                 {/* Password Recovery */}
-                <Link href="#" className="text-center text-lg font-bold text-gray-600 hover:text-gray-800 transition-colors">
+                <Link href="/forget-password" className="text-center text-lg font-bold text-gray-600 hover:text-gray-800 transition-colors">
                     {t("forgot_password")}
                 </Link>
 

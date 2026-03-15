@@ -76,5 +76,12 @@
     "have_account": "Already have an account?",
     "click_login": "Click to log in",
     "as_guest": "As Guest"
+  },
+  "ForgetPassword": {
+    "title": "Forgot Password?",
+    "description": "Don't worry.. your account will be recovered",
+    "email": "Email",
+    "mobile": "Mobile Number",
+    "recover_btn": "Recover Account"
   }
 }
