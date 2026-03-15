@@ -75,7 +75,10 @@
     "signup_btn": "إشتراك",
     "have_account": "إذا كان لديك حساب",
     "click_login": "إنقر لتسجيل الدخول",
-    "as_guest": "الدخول كزائر"
+    "as_guest": "الدخول كزائر",
+    "upload_image": "تحميل الصورة الشخصية",
+    "personal": "شخصي",
+    "commercial": "تجاري"
   },
   "ForgetPassword": {
     "title": "نسيت كلمة المرور؟",

@@ -75,7 +75,10 @@
     "signup_btn": "Sign Up",
     "have_account": "Already have an account?",
     "click_login": "Click to log in",
-    "as_guest": "As Guest"
+    "as_guest": "As Guest",
+    "upload_image": "Upload Profile Image",
+    "personal": "Personal",
+    "commercial": "Commercial"
   },
   "ForgetPassword": {
     "title": "Forgot Password?",

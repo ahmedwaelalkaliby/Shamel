@@ -2,17 +2,136 @@
 
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { useState } from "react";
-import { Eye, EyeOff, Check } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Eye, EyeOff, Check, Loader2 } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
+import { useAuth } from "@/src/hooks/useAuth";
+import { toast } from "react-hot-toast"; 
+import { jwtDecode } from "jwt-decode";
+
 
 export default function Page() {
     const t = useTranslations("SignIn");
     const locale = useLocale();
     const isRtl = locale === "ar";
+    const { login, loginWithGoogle, loginWithApple, loading } = useAuth();
 
     const [showPassword, setShowPassword] = useState(false);
     const [agreed, setAgreed] = useState(false);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+
+    // Initialize Auth scripts
+    useEffect(() => {
+        // Load Google script
+        const googleScript = document.createElement("script");
+        googleScript.src = "https://accounts.google.com/gsi/client";
+        googleScript.async = true;
+        googleScript.defer = true;
+        document.body.appendChild(googleScript);
+
+        // Load Apple script
+        const appleScript = document.createElement("script");
+        appleScript.src = "https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/auth/1/en_US/appleid.auth.js";
+        appleScript.async = true;
+
+        appleScript.defer = true;
+        document.body.appendChild(appleScript);
+
+        return () => {
+            document.body.removeChild(googleScript);
+            document.body.removeChild(appleScript);
+        };
+    }, []);
+
+
+    const handleEmailLogin = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!agreed) {
+            toast.error(isRtl ? "يجب الموافقة على الشروط والأحكام" : "You must agree to the terms and conditions");
+            return;
+        }
+        try {
+            await login({ email, password, fcm_token: "web" });
+            toast.success(isRtl ? "تم تسجيل الدخول بنجاح" : "Logged in successfully");
+        } catch (err: any) {
+            toast.error(err.message || (isRtl ? "فشل تسجيل الدخول" : "Login failed"));
+        }
+    };
+
+    const handleGoogleLogin = async () => {
+        if (!agreed) {
+            toast.error(isRtl ? "يجب الموافقة على الشروط والأحكام" : "You must agree to the terms and conditions");
+            return;
+        }
+        
+        try {
+            // @ts-ignore
+            window.google?.accounts.id.initialize({
+                client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+                callback: async (response: any) => {
+                    const token = response.credential;
+                    const decoded: any = jwtDecode(token);
+                    
+                    await loginWithGoogle({
+                        email: decoded.email,
+                        name: decoded.name || decoded.given_name,
+                        google_id: decoded.sub,
+                        fcm_token: "web"
+                    });
+                    toast.success(isRtl ? "تم تسجيل الدخول بنجاح" : "Logged in successfully");
+                },
+            });
+            // @ts-ignore
+            window.google?.accounts.id.prompt();
+        } catch (err: any) {
+            toast.error(err.message || "Google login failed");
+        }
+
+    };
+
+
+    const handleAppleLogin = async () => {
+        if (!agreed) {
+            toast.error(isRtl ? "يجب الموافقة على الشروط والأحكام" : "You must agree to the terms and conditions");
+            return;
+        }
+        try {
+            // @ts-ignore
+            window.AppleID.auth.init({
+                clientId: process.env.NEXT_PUBLIC_APPLE_CLIENT_ID,
+                scope: "name email",
+                redirectURI: window.location.origin,
+                usePopup: true,
+            });
+
+            // @ts-ignore
+            const response = await window.AppleID.auth.signIn();
+            
+            // Extract info from authorization and user objects
+            const { authorization, user } = response;
+            
+            if (authorization) {
+                // Identity token is a JWT containing email
+                const decoded: any = jwtDecode(authorization.id_token);
+                
+                await loginWithApple({
+                    email: decoded.email || (user?.email),
+                    name: user ? `${user.name.firstName} ${user.name.lastName}` : (decoded.email?.split('@')[0] || "Apple User"),
+                    apple_id: decoded.sub,
+                    fcm_token: "web"
+                });
+                toast.success(isRtl ? "تم تسجيل الدخول بنجاح" : "Logged in successfully");
+            }
+        } catch (err: any) {
+            toast.error(err.message || "Apple login failed");
+        }
+
+    };
+
+
+
 
     return (
         <main className="min-h-screen flex flex-col items-center font-sans overflow-x-hidden">
@@ -23,7 +142,9 @@ export default function Page() {
                     alt="Souq Shamel Logo"
                     width={220}
                     height={220}
+                    style={{ height: 'auto' }}
                     className="h-auto w-44 md:w-56 mb-8"
+
                     priority
                 />
                 <h1 className="text-2xl md:text-4xl font-black text-black text-center leading-tight">
@@ -38,13 +159,16 @@ export default function Page() {
                     alt="Community"
                     width={1200}
                     height={600}
+                    style={{ height: 'auto' }}
                     className="w-full h-auto mx-auto"
+
                     priority
                 />
             </div>
 
             {/* Bottom Section: Form Card */}
             <div className="w-full max-w-4xl bg-primary-200 rounded-t-3xl py-10 px-2 flex flex-col flex-1 gap-10">
+
 
                 {/* Email Input */}
                 <div className="relative group">
@@ -53,6 +177,8 @@ export default function Page() {
                     </label>
                     <input
                         type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className={`w-full rounded-xl border-2 border-secondary bg-transparent py-4.5 px-6 ${isRtl ? 'text-right' : 'text-left'} text-gray-700 text-lg outline-none focus:ring-0 placeholder-gray-400 font-medium`}
                         placeholder={t("email")}
                     />
@@ -60,12 +186,14 @@ export default function Page() {
 
                 {/* Password Input */}
                 <div className="relative group">
-                    <label className={`absolute -top-3.5 ${isRtl ? 'right-6' : 'left-6'} bg-primary-200 px-2 text-[15px] text-[#CC0000] font-bold z-10`}>
+                    <label className={`absolute -top-3.5 ${isRtl ? 'right-6' : 'left-6'} bg-primary-200 px-2 text-[#CC0000] font-bold z-10`}>
                         {t("password")}
                     </label>
                     <div className="relative">
                         <input
                             type={showPassword ? "text" : "password"}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             className={`w-full rounded-xl border-2 border-secondary bg-transparent py-4.5 px-6 ${isRtl ? 'text-right pr-6 pl-14' : 'text-left pl-6 pr-14'} text-gray-700 text-lg outline-none focus:ring-0 placeholder-gray-400 font-medium`}
                             placeholder={t("password")}
                         />
@@ -111,9 +239,14 @@ export default function Page() {
                 </div>
 
                 {/* Login Action */}
-                <button className="w-full bg-secondary hover:bg-secondary/80 cursor-pointer active:scale-95 transition-all text-white text-3xl font-bold rounded-2xl py-4 shadow-lg">
-                    {t("login")}
+                <button 
+                    onClick={handleEmailLogin}
+                    disabled={loading}
+                    className="w-full bg-secondary hover:bg-secondary/80 cursor-pointer active:scale-95 transition-all text-white text-3xl font-bold rounded-2xl py-4 shadow-lg flex items-center justify-center disabled:opacity-70"
+                >
+                    {loading ? <Loader2 className="animate-spin" size={32} /> : t("login")}
                 </button>
+
              
                 
                 <div className="flex flex-col items-center gap-5">
@@ -126,14 +259,23 @@ export default function Page() {
                 <div className="flex flex-col items-center gap-3">
                     <p className="text-xl font-black text-black">{t("continue_with")}</p>
                     <div className="flex gap-6">
-                        <button className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 cursor-pointer transition-transform">
+                        <button 
+                            onClick={handleAppleLogin}
+                            disabled={loading}
+                            className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 cursor-pointer transition-transform disabled:opacity-50"
+                        >
                             <Image src="/apple.svg" alt="Apple" width={55} height={57} />
                         </button>
-                        <button className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 cursor-pointer transition-transform">
+                        <button 
+                            onClick={handleGoogleLogin}
+                            disabled={loading}
+                            className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 cursor-pointer transition-transform disabled:opacity-50"
+                        >
                             <Image src="/google.svg" alt="Google" width={48} height={49} />
                         </button>
                     </div>
                 </div>
+
 
                 {/* Footer Engagement Links */}
                 <div className="text-center">

@@ -8,6 +8,9 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import ReactQueryProvider from "@/src/providers/ReactQueryProvider";
+import { Toaster } from "react-hot-toast";
+
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -44,11 +47,15 @@ export default async function RootLayout({
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"} suppressHydrationWarning>
       <body className={`${cairo.variable} antialiased`} style={{ fontFamily: "var(--font-cairo)" }}>
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <Navbar />
-          {children}
-          <Footer />
-          <MobileNavbar />
+          <ReactQueryProvider>
+            <Toaster position="top-center" reverseOrder={false} />
+            <Navbar />
+            {children}
+            <Footer />
+            <MobileNavbar />
+          </ReactQueryProvider>
         </NextIntlClientProvider>
+
       </body>
     </html>
   );
