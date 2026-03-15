@@ -48,7 +48,7 @@
   "MarketSections": {
     "title": "أقسام السوق"
   },
-  "MyAccount": {
+  "SignIn": {
     "tagline": "كل ما تحتاجه في مكان واحد",
     "email": "البريد الإلكتروني",
     "password": "كلمة المرور",
@@ -60,5 +60,21 @@
     "signup": "إشترك الآن",
     "or": "أو",
     "guest": "كزائر"
+  },
+  "SignUp": {
+    "title": "أنشئ حسابك الجديد",
+    "description": "واحصل على تجربة أكثر تخصيصاً لك",
+    "username": "اسم المستخدم",
+    "account_type": "نوع الحساب",
+    "personal_commercial": "شخصي / تجاري",
+    "city": "المدينة",
+    "email": "البريد الإلكتروني",
+    "mobile": "رقم الموبايل",
+    "password": "كلمة المرور",
+    "confirm_password": "تأكيد كلمة المرور",
+    "signup_btn": "إشتراك",
+    "have_account": "إذا كان لديك حساب",
+    "click_login": "إنقر لتسجيل الدخول",
+    "as_guest": "الدخول كزائر"
   }
 }

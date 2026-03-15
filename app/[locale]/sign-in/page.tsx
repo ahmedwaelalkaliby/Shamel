@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useState } from "react";
 import { Eye, EyeOff, Check } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 export default function Page() {
-    const t = useTranslations("MyAccount");
+    const t = useTranslations("SignIn");
     const locale = useLocale();
     const isRtl = locale === "ar";
 
@@ -139,7 +139,7 @@ export default function Page() {
                 <div className="text-center">
                     <p className="text-lg text-black font-bold">
                         {t("no_account")}{" "}
-                        <Link href="/register" className="text-secondary font-black hover:underline">
+                        <Link href="/sign-up" className="text-secondary font-black hover:underline">
                             {t("signup")}
                         </Link>
                         {" "} {t("or")} {" "}
