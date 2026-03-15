@@ -11,7 +11,7 @@ export default function MobileNavbar() {
     const t = useTranslations("Navigation");
 
     const navItems = [
-        { href: "/profile", icon: <AiOutlineUser size={30} />, label: t("my_account") },
+        { href: "/sign-in", icon: <AiOutlineUser size={30} />, label: t("my_account") },
         { href: "/notifications", icon: <Bell size={30} />, label: t("notifications") },
         { href: "/add-ad", icon: <IoMdAdd size={30} />, label: t("add_ad") },
         { href: "/search", icon: <Search size={30} />, label: t("search") },

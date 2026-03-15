@@ -47,5 +47,18 @@
   },
   "MarketSections": {
     "title": "Market Sections"
+  },
+  "MyAccount": {
+    "tagline": "Everything you need in one place",
+    "email": "Email",
+    "password": "Password",
+    "terms": "I agree to the Terms & Conditions and Privacy Policy",
+    "login": "Login",
+    "forgot_password": "Forgot password?",
+    "continue_with": "Continue with",
+    "no_account": "Don't have an account?",
+    "signup": "Sign up now",
+    "or": "or",
+    "guest": "as a guest"
   }
 }
