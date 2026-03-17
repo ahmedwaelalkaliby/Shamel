@@ -96,5 +96,20 @@
     "confirm_password": "Confirm New Password",
     "confirm_password_placeholder": "Re-enter new password",
     "confirm_btn": "Confirm"
+  },
+  "Profile": {
+    "my_ads": "My Ads",
+    "wallet": "Wallet",
+    "account_settings": "Account Settings",
+    "notifications_settings": "Notification Settings",
+    "language": "Language",
+    "city": "City",
+    "city_subtext": "You can change it to get results closer to you",
+    "terms_and_conditions": "Terms and Conditions",
+    "technical_support": "Technical Support",
+    "personal_profile": "Personal Profile",
+    "business_question": "Do you have a business?",
+    "switch_to_business": "Switch to business profile",
+    "logout": "Logout"
   }
 }

@@ -1,10 +1,10 @@
 import axiosInstance from '../lib/axios';
-import { 
-  AuthResponse, 
-  LoginParams, 
-  RegisterParams, 
-  SocialLoginParams, 
-  User 
+import {
+  AuthResponse,
+  LoginParams,
+  RegisterParams,
+  SocialLoginParams,
+  User
 } from '../types/auth';
 
 export const authService = {
@@ -13,16 +13,21 @@ export const authService = {
     return response.data;
   },
 
-  register: async (params: RegisterParams): Promise<AuthResponse> => {
-    const formData = new FormData();
-    Object.keys(params).forEach((key) => {
-      const value = (params as any)[key];
-      if (value !== undefined && value !== null) {
-        formData.append(key, value);
-      }
-    });
+  register: async (params: RegisterParams | FormData): Promise<AuthResponse> => {
+    let body: any = params;
+    
+    if (!(params instanceof FormData)) {
+      const formData = new FormData();
+      Object.keys(params).forEach((key) => {
+        const value = (params as any)[key];
+        if (value !== undefined && value !== null) {
+          formData.append(key, value);
+        }
+      });
+      body = formData;
+    }
 
-    const response = await axiosInstance.post('/auth/register', formData, {
+    const response = await axiosInstance.post('/auth/register', body, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },

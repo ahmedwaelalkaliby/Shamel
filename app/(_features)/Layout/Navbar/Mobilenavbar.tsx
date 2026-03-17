@@ -5,13 +5,16 @@ import { Bell, Search, Home } from "lucide-react";
 import { AiOutlineUser } from "react-icons/ai";
 import { IoMdAdd } from "react-icons/io";
 import { useTranslations } from "next-intl";
+import { useAuth } from "@/src/hooks/useAuth";
+
 
 export default function MobileNavbar() {
     const pathname = usePathname();
     const t = useTranslations("Navigation");
+    const { isAuthenticated } = useAuth();
 
     const navItems = [
-        { href: "/sign-in", icon: <AiOutlineUser size={30} />, label: t("my_account") },
+        { href: isAuthenticated ? "/profile" : "/sign-in", icon: <AiOutlineUser size={30} />, label: t("my_account") },
         { href: "/notifications", icon: <Bell size={30} />, label: t("notifications") },
         { href: "/add-ad", icon: <IoMdAdd size={30} />, label: t("add_ad") },
         { href: "/search", icon: <Search size={30} />, label: t("search") },

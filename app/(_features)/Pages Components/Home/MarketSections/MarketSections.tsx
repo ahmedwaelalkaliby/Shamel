@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
-import { Category } from '@/types/category';
-import { getCategories } from '@/lib/api';
+import { Category } from '@/src/types/category';
+import { categoryService } from '@/src/services/categoryService';
 
 export default function MarketSections() {
   const t = useTranslations("MarketSections");
@@ -15,7 +15,7 @@ export default function MarketSections() {
   useEffect(() => {
     async function loadCategories() {
       try {
-        const result = await getCategories(locale);
+        const result = await categoryService.getCategories(locale);
         if (result.status) {
           setCategories(result.data);
         }
@@ -42,11 +42,11 @@ export default function MarketSections() {
         <h2 className="text-xl font-bold text-gray-800 md:text-2xl mb-6 px-2">
           {t("title")}
         </h2>
-        
+
         <div className="max-w-5xl mx-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
           {categories.map((category) => (
-            <div 
-              key={category.id} 
+            <div
+              key={category.id}
               className="bg-white rounded-2xl p-4 flex flex-col items-center justify-center shadow-sm hover:shadow-md transition-shadow aspect-[4/5] border border-gray-100"
             >
               <div className="relative w-full h-12 mb-3">

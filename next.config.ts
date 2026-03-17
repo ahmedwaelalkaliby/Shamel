@@ -9,14 +9,17 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'souqshamel.com',
-        port: '',
-        pathname: '/public/**',
+        pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'souqshamel.com',
-        port: '',
-        pathname: '/storage/**',
+        hostname: '*.googleusercontent.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.appleid.apple.com',
+        pathname: '/**',
       },
     ],
   },

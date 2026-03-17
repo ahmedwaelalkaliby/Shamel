@@ -96,5 +96,20 @@
     "confirm_password": "إعادة كلمة المرور",
     "confirm_password_placeholder": "أعد إدخال كلمة المرور",
     "confirm_btn": "تأكيد"
+  },
+  "Profile": {
+    "my_ads": "إعلاناتي",
+    "wallet": "المحفظة",
+    "account_settings": "إعدادات الحساب",
+    "notifications_settings": "إعدادات الإشعارات",
+    "language": "اللغة",
+    "city": "المدينة",
+    "city_subtext": "يمكنك تغييرها للحصول على نتائج أقرب إليك",
+    "terms_and_conditions": "الشروط والأحكام",
+    "technical_support": "الدعم الفني",
+    "personal_profile": "ملف شخصي",
+    "business_question": "هل تمتلك نشاط تجاري؟",
+    "switch_to_business": "التغيير إلى ملف تجاري",
+    "logout": "تسجيل الخروج"
   }
 }

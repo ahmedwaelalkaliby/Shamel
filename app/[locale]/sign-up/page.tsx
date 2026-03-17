@@ -7,8 +7,8 @@ import { Eye, EyeOff, Camera, Loader2 } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { registerSchema, type RegisterFormData } from "@/lib/validations/authSchema";
-import { useRegister } from "@/hooks/useRegister";
+import { registerSchema, type RegisterFormData } from "@/src/lib/validations/auth";
+import { useRegister } from "@/src/hooks/useRegister";
 
 export default function Page() {
     const t = useTranslations("SignUp");

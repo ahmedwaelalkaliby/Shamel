@@ -5,12 +5,14 @@ import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { AiOutlineUser } from "react-icons/ai";
+import { useAuth } from "@/src/hooks/useAuth";
 
 export default function Navbar() {
     const t = useTranslations("Navigation");
     const locale = useLocale();
     const router = useRouter();
     const pathname = usePathname();
+    const { isAuthenticated } = useAuth();
 
     const toggleLanguage = () => {
         const nextLocale = locale === "ar" ? "en" : "ar";
@@ -68,7 +70,7 @@ export default function Navbar() {
                         <Bell size={22} className="cursor-pointer hidden md:block" />
                     </Link>
                     <Link
-                        href="/sign-in"
+                        href={isAuthenticated ? "/profile" : "/sign-in"}
                         className=" cursor-pointer transition-colors hover:text-secondary active:scale-95"
                     >
                         <AiOutlineUser size={30} className="border-2 rounded-full p-1 cursor-pointer hidden md:block" />

@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { AdCard } from './AdCard';
-import { getLatestAds, getTodayOffers, getFavorites } from '@/lib/api';
-import { Ad, AdsResponse } from '@/types/ad';
+import { adService } from '@/src/services/adService';
+import { favoriteService } from '@/src/services/favoriteService';
+import { Ad, AdsResponse } from '@/src/types/ad';
 import { useLocale } from 'next-intl';
 
 import 'swiper/css';
@@ -25,11 +26,11 @@ export default function AdsSection({ title, type }: AdsSectionProps) {
             try {
                 let response: AdsResponse;
                 if (type === 'latest') {
-                    response = await getLatestAds(locale);
+                    response = await adService.getLatestAds(locale);
                 } else if (type === 'today') {
-                    response = await getTodayOffers(locale);
+                    response = await adService.getTodayOffers(locale);
                 } else {
-                    response = await getFavorites(locale);
+                    response = await favoriteService.getFavorites(locale);
                 }
 
                 if (response.status) {

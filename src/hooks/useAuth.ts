@@ -3,10 +3,10 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { authService } from '../services/authService';
 import { useAuthStore } from '../store/authStore';
-import { 
-  setAuthToken as saveToken, 
-  setStoredUser, 
-  clearAuthData, 
+import {
+  setAuthToken as saveToken,
+  setStoredUser,
+  clearAuthData,
   getAuthToken
 } from '../lib/cookies';
 import { LoginParams, RegisterParams, SocialLoginParams, User } from '../types/auth';
@@ -17,14 +17,14 @@ import { useRouter } from '@/i18n/navigation';
 export const useAuth = () => {
   const queryClient = useQueryClient();
   const router = useRouter();
-  const { 
-    user, 
-    setUser, 
-    setToken, 
-    isAuthenticated, 
-    isLoading: storeLoading, 
-    setLoading, 
-    logout: clearStore 
+  const {
+    user,
+    setUser,
+    setToken,
+    isAuthenticated,
+    isLoading: storeLoading,
+    setLoading,
+    logout: clearStore
   } = useAuthStore();
 
   // Initialize auth from token in cookies
@@ -46,10 +46,15 @@ export const useAuth = () => {
 
   // Handle user data update when query succeeds
   useEffect(() => {
-    if (userData?.status && userData?.data) {
-      setUser(userData.data);
-      setStoredUser(userData.data);
-      setLoading(false);
+    if (userData) {
+      if (userData.status && userData.data) {
+        setUser(userData.data);
+        setStoredUser(userData.data);
+        setLoading(false);
+      } else {
+        // Status is false or data missing despite successful query
+        setLoading(false);
+      }
     } else if (isError) {
       handleLogout();
     } else if (!getAuthToken()) {
@@ -75,7 +80,7 @@ export const useAuth = () => {
     if (data.status) {
       const payload = data.data || data;
       const { user, token } = payload;
-      
+
       if (!user || !token) {
         console.error('Auth response missing user or token', data);
         return;

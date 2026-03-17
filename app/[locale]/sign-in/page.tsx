@@ -30,10 +30,9 @@ export default function Page() {
         googleScript.async = true;
         googleScript.defer = true;
         document.body.appendChild(googleScript);
-
         // Load Apple script
         const appleScript = document.createElement("script");
-        appleScript.src = "https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/auth/1/en_US/appleid.auth.js";
+        appleScript.src = "https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/auth/2/en_US/appleid.auth.js";
         appleScript.async = true;
 
         appleScript.defer = true;
@@ -186,7 +185,7 @@ export default function Page() {
 
                 {/* Password Input */}
                 <div className="relative group">
-                    <label className={`absolute -top-3.5 ${isRtl ? 'right-6' : 'left-6'} bg-primary-200 px-2 text-[#CC0000] font-bold z-10`}>
+                    <label className={`absolute -top-3.5 ${isRtl ? 'right-6' : 'left-6'} bg-primary-200 px-2 text-secondary font-bold z-10`}>
                         {t("password")}
                     </label>
                     <div className="relative">
@@ -285,7 +284,7 @@ export default function Page() {
                             {t("signup")}
                         </Link>
                         {" "} {t("or")} {" "}
-                        <Link href="/guest" className="text-secondary font-black hover:underline">
+                        <Link href="/" className="text-secondary font-black hover:underline">
                             {t("guest")}
                         </Link>
                     </p>
