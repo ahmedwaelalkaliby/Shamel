@@ -5,10 +5,12 @@ import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { Category } from '@/src/types/category';
 import { categoryService } from '@/src/services/categoryService';
+import { useRouter } from 'next/navigation';
 
 export default function MarketSections() {
   const t = useTranslations("MarketSections");
   const locale = useLocale();
+  const router = useRouter();
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -19,8 +21,12 @@ export default function MarketSections() {
         if (result.status) {
           setCategories(result.data);
         }
-      } catch (error) {
-        console.error("Error fetching categories:", error);
+      } catch (error: any) {
+        if (error?.response?.status === 429 || error?.status === 429) {
+          console.warn("Rate limit reached for categories API. Too many requests.");
+        } else {
+          console.error("Error fetching categories:", error);
+        }
       } finally {
         setLoading(false);
       }
@@ -30,7 +36,7 @@ export default function MarketSections() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center py-20 bg-[#fce4e4]">
+      <div className="flex justify-center items-center py-20">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
       </div>
     );
@@ -47,7 +53,8 @@ export default function MarketSections() {
           {categories.map((category) => (
             <div
               key={category.id}
-              className="bg-white rounded-2xl p-4 flex flex-col items-center justify-center shadow-sm hover:shadow-md transition-shadow aspect-[4/5] border border-gray-100"
+              className="bg-white rounded-2xl p-4 flex flex-col items-center justify-center shadow-sm hover:shadow-md transition-shadow aspect-[4/5] border border-gray-100 cursor-pointer"
+              onClick={() => router.push(`/${locale}/${category.id}`)}
             >
               <div className="relative w-full h-12 mb-3">
                 <Image

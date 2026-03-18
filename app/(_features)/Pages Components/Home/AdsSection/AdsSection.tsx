@@ -37,8 +37,10 @@ export default function AdsSection({ title, type }: AdsSectionProps) {
                     setAds(response.data);
                 }
             } catch (error: any) {
-                if (error.message?.includes('401') || error.message?.includes('Unauthorized')) {
+                if (error?.message?.includes('401') || error?.message?.includes('Unauthorized')) {
                     setAds([]);
+                } else if (error?.response?.status === 429 || error?.status === 429) {
+                    console.warn(`Rate limit reached for ads: ${title}. Too many requests.`);
                 } else {
                     console.error(`Error fetching ads for ${title}:`, error);
                 }
