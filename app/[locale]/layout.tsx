@@ -18,8 +18,8 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: "سوق شامل",
-  description: "سوق شامل",
+  title: "Souq Shamel",
+  description: "Souq Shamel",
   icons: {
     icon: "/Logo.svg",
   },

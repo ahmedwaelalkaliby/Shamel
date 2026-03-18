@@ -36,7 +36,7 @@ export default function AdsPage() {
     }
 
     return (
-        <main className="container px-4 md:px-0 max-w-7xl mx-auto py-8 font-sans">
+        <main className="container px-4 max-w-7xl mx-auto py-8 font-sans">
             <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 px-2" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
                 {locale === 'ar' ? 'الإعلانات' : 'Ads'}
             </h1>

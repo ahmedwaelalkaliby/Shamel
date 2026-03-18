@@ -1,3 +1,4 @@
+"use client";
 import Image from 'next/image';
 import React from 'react';
 
@@ -10,15 +11,15 @@ interface AdBigCardProps {
 }
 
 export default function AdBigCard({
-    title = "تصليح الغسالات في العين",
-    price = "200 درهم",
-    description = "نقوم بإصلاح الغسالات وجميع الأجهزة المنزلية في ........",
-    imageUrl = "/repair-service.png", // Replace with your actual image path
-    locale = 'ar'
+    title,
+    price,
+    description,
+    imageUrl,
+    locale
 }: AdBigCardProps) {
     const isRtl = locale === 'ar';
 
-    const getFullImageUrl = (url: string) => {
+    const getFullImageUrl = (url?: string) => {
         if (!url) return '/logo.svg';
         if (url.startsWith('http') || url.startsWith('/') || url.startsWith('data:')) {
             return url;
@@ -30,15 +31,15 @@ export default function AdBigCard({
 
     return (
         <div
-            className="w-full max-w-2xl mx-auto bg-white rounded-t-3xl shadow-lg overflow-hidden border border-gray-100 mb-6 group transition-all duration-300 hover:shadow-xl"
+            className="w-full min-w-[350px] max-w-[450px] mx-auto bg-white rounded-t-3xl shadow-lg overflow-hidden border border-gray-100 mb-6 group transition-all duration-300 hover:shadow-xl"
             dir={isRtl ? 'rtl' : 'ltr'}
         >
             {/* 1. Image Section */}
             <div className="relative aspect-[16/9] w-full overflow-hidden">
                 <Image
                     src={finalImageUrl}
-                    alt={title}
-                    width={800}
+                    alt={title || "Image"}
+                        width={800}
                     height={600}
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
