@@ -7,7 +7,7 @@ import { adService } from '@/src/services/adService';
 import { favoriteService } from '@/src/services/favoriteService';
 import { Ad, AdsResponse } from '@/src/types/ad';
 import { useLocale } from 'next-intl';
-
+import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -68,9 +68,9 @@ export default function AdsSection({ title, type }: AdsSectionProps) {
                     <h2 className="text-xl font-bold text-primary-800 md:text-3xl">
                         {title}
                     </h2>
-                    <a href="#" className="text-blue-900 font-bold text-sm md:text-xl hover:underline">
+                    <Link href="/ads" className="text-blue-900 font-bold text-sm md:text-xl underline">
                         {locale === 'ar' ? 'المزيد' : 'More'}
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="w-full mx-auto">
@@ -88,7 +88,7 @@ export default function AdsSection({ title, type }: AdsSectionProps) {
                         }}
                         className="w-full"
                     >
-                        {ads.map((ad) => (
+                        {ads.slice(0, 6).map((ad) => (
                             <SwiperSlide key={ad.id} className="h-auto">
                                 <AdCard
                                     title={ad.title}
