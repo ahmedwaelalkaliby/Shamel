@@ -45,7 +45,7 @@ export default async function AdDetailsPage({ params }: { params: Promise<{ ad_i
             </div>
 
             {/* description section */}
-            <div className='p-4 min-h-50 flex justify-center items-center bg-white rounded-3xl shadow-sm border border-gray-100'>
+            <div className='p-4 min-h-50 flex justify-center items-center bg-white rounded-t-3xl shadow-sm border border-gray-100'>
                 <p className='text-center text-lg md:text-xl font-medium whitespace-pre-wrap leading-relaxed'>
                     {ad.description}
                 </p>
