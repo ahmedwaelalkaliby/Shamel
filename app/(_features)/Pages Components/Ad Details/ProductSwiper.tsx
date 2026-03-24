@@ -13,6 +13,7 @@ interface ProductSwiperProps {
 
 export default function ProductSwiper({ images = [] }: ProductSwiperProps) {
     const [swiperRef, setSwiperRef] = useState<SwiperType | null>(null);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     return (
         <div className="relative w-full max-w-md mx-auto select-none">
@@ -79,8 +80,9 @@ export default function ProductSwiper({ images = [] }: ProductSwiperProps) {
                 >
                     {images.map((img, index) => (
                         <SwiperSlide key={index}>
-                            <div className="relative w-full bg-white rounded-t-3xl overflow-hidden"
-                                style={{ aspectRatio: '1 / 1' }}>
+                            <div className="relative w-full bg-white rounded-t-3xl overflow-hidden cursor-zoom-in"
+                                style={{ aspectRatio: '1 / 1' }}
+                                onClick={() => setSelectedImage(img)}>
                                 <Image
                                     src={img}
                                     alt={`Product ${index + 1}`}
@@ -96,6 +98,35 @@ export default function ProductSwiper({ images = [] }: ProductSwiperProps) {
 
             {/* Dot Pagination */}
             <div className="custom-pagination flex items-center justify-center gap-2 mt-4" />
+
+            {/* Fullscreen Image Overlay */}
+            {selectedImage && (
+                <div 
+                    className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
+                    onClick={() => setSelectedImage(null)}
+                >
+                    <button 
+                        className="absolute top-4 right-4 text-white hover:text-gray-300 z-[110] transition-colors"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedImage(null);
+                        }}
+                    >
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <div className="relative w-full max-w-5xl h-full max-h-[85vh] transition-all duration-300 transform scale-100">
+                        <Image
+                            src={selectedImage}
+                            alt="Full Screen Product"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
+                    </div>
+                </div>
+            )}
 
             <style jsx global>{`
                 .custom-bullet {
