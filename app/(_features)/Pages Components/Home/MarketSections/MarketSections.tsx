@@ -44,12 +44,12 @@ export default function MarketSections() {
 
   return (
     <section className=" py-8 px-4 font-sans" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <h2 className="text-xl font-bold text-gray-800 md:text-2xl mb-6 px-2">
           {t("title")}
         </h2>
 
-        <div className="max-w-5xl mx-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
+        <div className="max-w-6xl mx-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
           {categories.map((category) => (
             <div
               key={category.id}

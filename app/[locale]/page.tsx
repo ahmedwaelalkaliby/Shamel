@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen space-y-0">
-      <HeroSection />
+      {/* <HeroSection /> */}
       <MarketSections />
       
       {/* Latest Ads */}

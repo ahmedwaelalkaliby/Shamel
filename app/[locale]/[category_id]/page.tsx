@@ -56,13 +56,14 @@ export default async function CategoryPage({
           {ads && ads.length > 0 ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-5">
               {ads.map((ad) => (
-                <Link href={`/ad/${ad.id}`} key={ad.id} className="block w-full h-full">
-                  <AdCard
-                    title={ad.title}
-                    price={`${ad.price} ${locale === 'ar' ? 'درهم' : 'AED'}`}
-                    imageUrl={ad.images && ad.images.length > 0 ? ad.images[0].image_path : ''}
-                  />
-                </Link>
+                <AdCard
+                  key={ad.id}
+                  id={ad.id}
+                  locale={locale}
+                  title={ad.title}
+                  price={`${ad.price} ${locale === 'ar' ? 'درهم' : 'AED'}`}
+                  imageUrl={ad.images && ad.images.length > 0 ? ad.images[0].image_path : ''}
+                />
               ))}
             </div>
           ) : (

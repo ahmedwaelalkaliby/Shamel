@@ -46,6 +46,7 @@ export default function AdsPage() {
                     {ads.map((ad) => (
                         <AdBigCard
                             key={ad.id}
+                            id={ad.id}
                             title={ad.title}
                             price={`${ad.price} ${locale === 'ar' ? 'درهم' : 'AED'}`}
                             description={ad.description}

@@ -1,8 +1,10 @@
 "use client";
 import Image from 'next/image';
 import React from 'react';
+import Link from 'next/link';
 
 interface AdBigCardProps {
+    id?: number | string;
     title?: string;
     price?: string;
     description?: string;
@@ -11,6 +13,7 @@ interface AdBigCardProps {
 }
 
 export default function AdBigCard({
+    id,
     title,
     price,
     description,
@@ -30,8 +33,9 @@ export default function AdBigCard({
     const finalImageUrl = getFullImageUrl(imageUrl);
 
     return (
-        <div
-            className="w-full min-w-[350px] max-w-[450px] mx-auto bg-white rounded-t-3xl shadow-lg overflow-hidden border border-gray-100 mb-6 group transition-all duration-300 hover:shadow-xl"
+        <Link 
+            href={`/${locale || 'en'}/ads/${id || ''}`}
+            className="w-full min-w-[350px] max-w-[450px] mx-auto bg-white rounded-t-3xl shadow-lg overflow-hidden border border-gray-100 mb-6 group transition-all duration-300 hover:shadow-xl block"
             dir={isRtl ? 'rtl' : 'ltr'}
         >
             {/* 1. Image Section */}
@@ -64,6 +68,6 @@ export default function AdBigCard({
                     {description}
                 </p>
             </div>
-        </div>
+        </Link>
     );
 }

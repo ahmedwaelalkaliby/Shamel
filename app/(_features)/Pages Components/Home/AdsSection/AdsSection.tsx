@@ -91,9 +91,11 @@ export default function AdsSection({ title, type }: AdsSectionProps) {
                         {ads.slice(0, 6).map((ad) => (
                             <SwiperSlide key={ad.id} className="h-auto">
                                 <AdCard
+                                    id={ad.id}
                                     title={ad.title}
                                     price={`${ad.price} ${locale === 'ar' ? 'درهم' : 'AED'}`}
                                     imageUrl={ad.images?.[0]?.image_path || ''}
+                                    locale={locale}
                                 />
                             </SwiperSlide>
                         ))}

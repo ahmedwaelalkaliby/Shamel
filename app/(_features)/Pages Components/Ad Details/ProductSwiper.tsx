@@ -2,9 +2,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
-
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -12,13 +11,11 @@ interface ProductSwiperProps {
     images?: string[];
 }
 
-export default function ProductSwiper({
-    images = ["/swiper.jpg", "/swiper.jpg", "/swiper.jpg", "/swiper.jpg"],
-}: ProductSwiperProps) {
+export default function ProductSwiper({ images = [] }: ProductSwiperProps) {
     const [swiperRef, setSwiperRef] = useState<SwiperType | null>(null);
 
     return (
-        <div className="relative w-full max-w-md md:max-w-5xl mx-auto select-none">
+        <div className="relative w-full max-w-md mx-auto select-none">
             {/* Left Arrow */}
             <button
                 onClick={() => swiperRef?.slidePrev()}
@@ -61,14 +58,13 @@ export default function ProductSwiper({
             <div className="px-8">
                 <Swiper
                     onSwiper={setSwiperRef}
-                    modules={[Autoplay, Navigation, Pagination]}
+                    modules={[Navigation, Pagination]}
                     slidesPerView={1}
                     centeredSlides
                     loop={images.length > 1}
-                    autoplay={{ delay: 5000, disableOnInteraction: false }}
                     breakpoints={{
                         768: {
-                            slidesPerView: 3,
+                            slidesPerView: 1,
                             spaceBetween: 16,
                             centeredSlides: false,
                         },
