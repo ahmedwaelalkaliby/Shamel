@@ -12,7 +12,9 @@
     "add_ad": "Add Ad",
     "my_account": "My Account",
     "notifications": "Notifications",
-    "search": "Search"
+    "search": "Search",
+    "back": "Back",
+    "home_title": "Home Page"
   },
   "Footer": {
     "footer_title": "Souq Shamel",
@@ -108,8 +110,10 @@
     "terms_and_conditions": "Terms and Conditions",
     "technical_support": "Technical Support",
     "personal_profile": "Personal Profile",
+    "profile_title": "Personal Profile",
     "business_question": "Do you have a business?",
     "switch_to_business": "Switch to business profile",
-    "logout": "Logout"
+    "logout": "Logout",
+    "select_language": "Select Language"
   }
 }

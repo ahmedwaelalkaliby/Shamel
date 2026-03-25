@@ -12,7 +12,9 @@
     "add_ad": "أضف إعلانك",
     "my_account": "حسابي",
     "notifications": "الإشعارات",
-    "search": "بحث"
+    "search": "بحث",
+    "back": "الخلف",
+    "home_title": "الصفحة الرئيسية"
   },
   "Footer": {
     "footer_title": "سوق شامل",
@@ -108,8 +110,10 @@
     "terms_and_conditions": "الشروط والأحكام",
     "technical_support": "الدعم الفني",
     "personal_profile": "ملف شخصي",
+    "profile_title": "الملف الشخصي",
     "business_question": "هل تمتلك نشاط تجاري؟",
     "switch_to_business": "التغيير إلى ملف تجاري",
-    "logout": "تسجيل الخروج"
+    "logout": "تسجيل الخروج",
+    "select_language": "اختر اللغة"
   }
 }

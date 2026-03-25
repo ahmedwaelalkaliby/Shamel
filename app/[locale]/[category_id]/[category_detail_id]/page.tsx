@@ -7,7 +7,6 @@ export default async function SubCategoryDetailPage({
   params: Promise<{ locale: string, category_id: string, category_detail_id: string }>
 }) {
   const { locale, category_id, category_detail_id } = await params;
-
   try {
     const response = await categoryService.getCategoryDetails(locale, category_id);
 

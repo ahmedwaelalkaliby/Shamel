@@ -1,11 +1,30 @@
 "use client";
+import React, { useEffect, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { Facebook, Instagram, Twitter } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
+import { categoryService } from "@/src/services/categoryService";
+import { Category } from "@/src/types/category";
 
 export default function Footer() {
     const t = useTranslations("Footer");
+    const locale = useLocale();
+    const [categories, setCategories] = useState<Category[]>([]);
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response = await categoryService.getCategories(locale);
+                if (response.status) {
+                    setCategories(response.data);
+                }
+            } catch (error) {
+                console.error("Error loading categories for footer:", error);
+            }
+        };
+        fetchCategories();
+    }, [locale]);
 
     return (
         <footer className="bg-white text-primary-900 mt-20 pb-25 sm:pb-5 rounded-t-2xl">
@@ -56,19 +75,17 @@ export default function Footer() {
                         {t("footer_popular_categories")}
                     </h3>
 
-                    <ul className="space-y-2 text-primary-900 flex flex-col">
-                        <li>
-                            <Link href="/categories/cars" className="hover:text-secondary transition-colors">{t("footer_cars")}</Link>
-                        </li>
-                        <li>
-                            <Link href="/categories/real-estate" className="hover:text-secondary transition-colors">{t("footer_real_estate")}</Link>
-                        </li>
-                        <li>
-                            <Link href="/categories/mobiles" className="hover:text-secondary transition-colors">{t("footer_mobiles")}</Link>
-                        </li>
-                        <li>
-                            <Link href="/categories/furniture" className="hover:text-secondary transition-colors">{t("footer_furniture")}</Link>
-                        </li>
+                    <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-primary-900">
+                        {categories.map((category) => (
+                            <li key={category.id}>
+                                <Link 
+                                    href={`/${category.id}`} 
+                                    className="hover:text-secondary transition-colors text-sm line-clamp-1"
+                                >
+                                    {category.name}
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
                 </div>
 

@@ -1,14 +1,13 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link, useRouter } from '@/i18n/navigation';
 import { useAuth } from '@/src/hooks/useAuth';
 import Image from 'next/image';
+import LanguageModal from '@/app/(_features)/Global Components/Language Modal/LanguageModal';
 import { 
   Pencil, 
-  ChevronLeft, 
-  ChevronRight, 
   LogOut, 
   Wallet, 
   Settings, 
@@ -20,13 +19,21 @@ import {
   Megaphone
 } from 'lucide-react';
 
+interface MenuItem {
+  id: string;
+  label: string;
+  subtext?: string;
+  icon: React.ReactNode;
+  href?: string;
+  onClick?: () => void;
+}
+
 export default function ProfilePage() {
   const t = useTranslations('Profile');
   const locale = useLocale();
   const router = useRouter();
   const { user, isAuthenticated, loading, logout } = useAuth();
-
-  const isRtl = locale === 'ar';
+  const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
 
   useEffect(() => {
     if (!loading && !isAuthenticated) {
@@ -48,7 +55,7 @@ export default function ProfilePage() {
     return null;
   }
 
-  const menuItems = [
+  const menuItems: MenuItem[] = [
     {
       id: 'my_ads',
       label: t('my_ads'),
@@ -77,7 +84,7 @@ export default function ProfilePage() {
       id: 'language',
       label: t('language'),
       icon: <Languages className="w-6 h-6" />,
-      href: '/profile/language',
+      onClick: () => setIsLanguageModalOpen(true),
     },
     {
       id: 'city',
@@ -152,20 +159,48 @@ export default function ProfilePage() {
 
         {/* Menu Items */}
         <div className="space-y-4">
-          {menuItems.map((item) => (
-            <Link 
-              key={item.id} 
-              href={item.href}
-                  className="group flex items-center bg-tertiary p-5 rounded-2xl shadow-md hover:bg-tertiary/80 transition-all duration-200 active:scale-[0.98] border border-white/20"
-            >
-              <div className="flex-1 flex items-center justify-start gap-3">
-                <span className="text-xl font-extrabold text-primary-900">{item.label}</span>
-                {item.subtext && (
-                  <span className="text-[11px] text-primary-500 font-bold opacity-80">{item.subtext}</span>
-                )}
-              </div>
-            </Link>
-          ))}
+          {menuItems.map((item) => {
+            if (item.onClick) {
+              return (
+                <button
+                  key={item.id}
+                  onClick={item.onClick}
+                  className="w-full group flex items-center bg-tertiary p-5 rounded-2xl shadow-md hover:bg-tertiary/80 transition-all duration-200 active:scale-[0.98] border border-white/20"
+                >
+                   <div className="flex-1 flex items-center justify-start gap-4">
+                      <div className="bg-white p-2 rounded-xl text-primary-700 group-hover:text-secondary transition-colors">
+                        {item.icon}
+                      </div>
+                      <div className="flex flex-col items-start">
+                        <span className="text-lg font-extrabold text-primary-900">{item.label}</span>
+                        {item.subtext && (
+                          <span className="text-[11px] text-primary-500 font-bold opacity-80">{item.subtext}</span>
+                        )}
+                      </div>
+                    </div>
+                </button>
+              );
+            }
+            return (
+              <Link 
+                key={item.id} 
+                href={item.href || '#'}
+                className="group flex items-center bg-tertiary p-5 rounded-2xl shadow-md hover:bg-tertiary/80 transition-all duration-200 active:scale-[0.98] border border-white/20"
+              >
+                <div className="flex-1 flex items-center justify-start gap-4">
+                  <div className="bg-white p-2 rounded-xl text-primary-700 group-hover:text-secondary transition-colors">
+                    {item.icon}
+                  </div>
+                  <div className="flex flex-col items-start">
+                    <span className="text-lg font-extrabold text-primary-900">{item.label}</span>
+                    {item.subtext && (
+                      <span className="text-[11px] text-primary-500 font-bold opacity-80">{item.subtext}</span>
+                    )}
+                  </div>
+                </div>
+              </Link>
+            )
+          })}
 
           {/* Logout Button */}
           <button 
@@ -177,6 +212,11 @@ export default function ProfilePage() {
           </button>
         </div>
       </div>
+
+      <LanguageModal 
+        isOpen={isLanguageModalOpen} 
+        onClose={() => setIsLanguageModalOpen(false)} 
+      />
     </main>
   );
 }

@@ -53,10 +53,10 @@ export default function MarketSections() {
           {categories.map((category) => (
             <div
               key={category.id}
-              className="bg-white rounded-2xl p-4 flex flex-col items-center justify-center shadow-sm hover:shadow-md transition-shadow aspect-[4/5] border border-gray-100 cursor-pointer"
+              className="bg-white rounded-2xl p-4 flex flex-col items-center justify-center shadow-sm hover:shadow-md transition-shadow aspect-[4/5] border border-gray-100 cursor-pointer hover:scale-105 hover:rotate-1"
               onClick={() => router.push(`/${locale}/${category.id}`)}
             >
-              <div className="relative w-full h-12 mb-3">
+              <div className="relative w-full h-12 md:h-20 mb-3">
                 <Image
                   src={`https://souqshamel.com/public/${category.image}`}
                   alt={category.name}
@@ -64,7 +64,7 @@ export default function MarketSections() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-sm md:text-lg font-bold text-gray-900 text-center leading-tight">
+              <span className="text-sm md:text-2xl font-bold text-gray-900 text-center leading-tight">
                 {category.name}
               </span>
             </div>
