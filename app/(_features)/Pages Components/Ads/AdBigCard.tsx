@@ -39,7 +39,7 @@ export default function AdBigCard({
             dir={isRtl ? 'rtl' : 'ltr'}
         >
             {/* 1. Image Section */}
-            <div className="relative aspect-[16/9] w-full overflow-hidden">
+            <div className="relative aspect-[16/12] bg-primary-500 w-full overflow-hidden flex items-center justify-center">
                 <Image
                     src={finalImageUrl}
                     alt={title || "Image"}
@@ -52,7 +52,7 @@ export default function AdBigCard({
             </div>
 
             {/* 2. Content Section */}
-            <div className="p-5 md:p-8 space-y-4 min-h-[150px]">
+            <div className="p-2 md:p-4 space-y-4 min-h-[100px]">
                 {/* Header: Title and Price */}
                 <div className="flex flex-row justify-between items-baseline gap-2 ">
                     <h2 className="text-xl md:text-2xl font-black text-gray-900 leading-tight line-clamp-1">

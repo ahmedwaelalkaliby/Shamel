@@ -13,7 +13,7 @@ interface ProductSwiperProps {
 
 export default function ProductSwiper({ images = [] }: ProductSwiperProps) {
     const [swiperRef, setSwiperRef] = useState<SwiperType | null>(null);
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
     return (
         <div className="relative w-full max-w-md mx-auto select-none">
@@ -80,14 +80,14 @@ export default function ProductSwiper({ images = [] }: ProductSwiperProps) {
                 >
                     {images.map((img, index) => (
                         <SwiperSlide key={index}>
-                            <div className="relative w-full bg-white rounded-t-3xl overflow-hidden cursor-zoom-in"
+                            <div className="relative w-full bg-primary-500 rounded-t-3xl overflow-hidden cursor-zoom-in"
                                 style={{ aspectRatio: '1 / 1' }}
-                                onClick={() => setSelectedImage(img)}>
+                                onClick={() => setSelectedIndex(index)}>
                                 <Image
                                     src={img}
                                     alt={`Product ${index + 1}`}
                                     fill
-                                    className="object-cover"
+                                    className="object-contain"
                                     priority={index === 0}
                                 />
                             </div>
@@ -100,25 +100,61 @@ export default function ProductSwiper({ images = [] }: ProductSwiperProps) {
             <div className="custom-pagination flex items-center justify-center gap-2 mt-4" />
 
             {/* Fullscreen Image Overlay */}
-            {selectedImage && (
+            {selectedIndex !== null && (
                 <div 
                     className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
-                    onClick={() => setSelectedImage(null)}
+                    onClick={() => setSelectedIndex(null)}
                 >
                     <button 
                         className="absolute top-4 right-4 text-white hover:text-gray-300 z-[110] transition-colors"
                         onClick={(e) => {
                             e.stopPropagation();
-                            setSelectedImage(null);
+                            setSelectedIndex(null);
                         }}
                     >
                         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
-                    <div className="relative w-full max-w-5xl h-full max-h-[85vh] transition-all duration-300 transform scale-100">
+
+                    {/* Left Modal Arrow */}
+                    {images.length > 1 && (
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedIndex((prev) => (prev !== null && prev > 0 ? prev - 1 : images.length - 1));
+                            }}
+                            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-[110] flex items-center justify-center w-12 h-12 text-white hover:text-gray-300 transition-colors"
+                            aria-label="Previous image"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
+                                <path d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                    )}
+
+                    {/* Right Modal Arrow */}
+                    {images.length > 1 && (
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedIndex((prev) => (prev !== null && prev < images.length - 1 ? prev + 1 : 0));
+                            }}
+                            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-[110] flex items-center justify-center w-12 h-12 text-white hover:text-gray-300 transition-colors"
+                            aria-label="Next image"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
+                                <path d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    )}
+
+                    <div 
+                        className="relative w-full max-w-5xl h-full max-h-[85vh] transition-all duration-300 transform scale-100"
+                        onClick={(e) => e.stopPropagation()}
+                    >
                         <Image
-                            src={selectedImage}
+                            src={images[selectedIndex]}
                             alt="Full Screen Product"
                             fill
                             className="object-contain"
