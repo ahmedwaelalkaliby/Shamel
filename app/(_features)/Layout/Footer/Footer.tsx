@@ -27,7 +27,7 @@ export default function Footer() {
     }, [locale]);
 
     return (
-        <footer className="bg-white text-primary-900 mt-20 pb-25 sm:pb-5 rounded-t-2xl">
+        <footer className="bg-white text-primary-900 pb-25 sm:pb-5 rounded-t-2xl">
 
             <div className="mx-auto container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 p-12">
 

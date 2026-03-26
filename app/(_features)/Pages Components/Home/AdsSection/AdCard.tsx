@@ -19,12 +19,12 @@ export const AdCard = ({ id, title, price, imageUrl, locale }: AdCardProps) => {
             <div className="bg-white rounded-[15px] md:rounded-[25px] overflow-hidden shadow-sm border border-gray-100 h-full flex flex-col p-2 md:p-4 transition-all duration-300 hover:shadow-md h-full">
                 {/* Image Container - Aspect ratio is key for consistency */}
                 <div className="relative aspect-[4/5] w-full mb-2 md:mb-4">
-                    <div className="relative w-full h-full rounded-xl md:rounded-2xl overflow-hidden">
+                    <div className="relative w-full h-full rounded-xl md:rounded-2xl overflow-hidden bg-primary-500">
                         <Image
                             src={fullImageUrl}
                             alt={title}
                             fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            className="object-contain transition-transform duration-500 group-hover:scale-105"
                             sizes="(max-width: 640px) 40vw, (max-width: 1024px) 33vw, 20vw"
                         />
                     </div>
