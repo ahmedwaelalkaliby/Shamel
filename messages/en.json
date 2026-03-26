@@ -115,5 +115,100 @@
     "switch_to_business": "Switch to business profile",
     "logout": "Logout",
     "select_language": "Select Language"
+  },
+  "AdTips": {
+    "title": "Tips to get the best results for your ad",
+    "tipsData": [
+      {
+        "category": "Real Estate",
+        "items": [
+          "Ad Title: Good example: \"Furnished apartment for rent in Al Difa Road – Abu Dhabi, 2 bedrooms and a hall\"",
+          "Photos: Photograph the property during the day, making sure to show the facade or main rooms, kitchen, and bathroom.",
+          "Details: Mention the type of property, area, number of rooms and bathrooms, building age, finishing condition, floor, and parking.",
+          "Location: Specify the area accurately, preferably mentioning the name of the complex or neighborhood.",
+          "Price: Specify if the price is negotiable or not."
+        ]
+      },
+      {
+        "category": "Cars",
+        "items": [
+          "Make sure to post photos of the car from the inside and outside.",
+          "Offer reasonable prices, and to determine car prices, you can check similar cars on the app.",
+          "Clean the car before taking photos.",
+          "Photos: Take clear photos from the front, back, sides, and inside.",
+          "Details: Mention the model, year of manufacture, mileage, car condition, number of accidents (if any), fuel type, and transmission type (automatic / manual).",
+          "Price: Specify if the price is final or negotiable. Offer reasonable prices, and to determine car prices, you can check similar cars on the app.",
+          "Additions: Does it have insurance? inspection? recently maintained? Do not hesitate to mention them.",
+          "Title: Good example: \"Toyota Corolla 2017 - 170k km - in excellent condition - Dubai\""
+        ]
+      },
+      {
+        "category": "Restaurants",
+        "items": [
+          "Make sure to post photos of the restaurant layout and menu if available.",
+          "Make sure to post photos of special dishes you have.",
+          "Try to clarify the restaurant seating and table distribution, and provide special offers on distinct items.",
+          "Use real photos of the items available in the offer, or the restaurants in general.",
+          "It is preferable to have photos with good lighting and from different angles.",
+          "Mention the restaurant type (fast food, seafood, grills, sweets), working hours, and delivery service.",
+          "If there is an ongoing offer or a specific meal (example: Ketchup included with delivery, phone number, and preferably mention WhatsApp for quick contact).",
+          "Make sure to mention the restaurant location, street, and any famous landmark."
+        ]
+      },
+      {
+        "category": "Jobs",
+        "items": [
+          "Title: Write the job title clearly, example: \"Cashier required for a restaurant in Sharjah\".",
+          "Details: Specify the tasks (comprehensive), salary type (or mention it depends on the interview), required nationality or languages if any, qualifications, or experiences.",
+          "Contact: Add a WhatsApp number or an email for quick contact.",
+          "Location: Specify the area accurately."
+        ]
+      },
+      {
+        "category": "Machinery & Equipment",
+        "items": [
+          "Take photos from different angles, and focus on the real condition (and do not use photos from the internet).",
+          "Mention the product type, brand, condition (new, used), usage duration (if used), warranty period, and whether there is delivery.",
+          "Price: Clear and negotiable or not.",
+          "Ad Title: Good example: \"Samsung 400 liters refrigerator - used in excellent condition - Dubai\"."
+        ]
+      },
+      {
+        "category": "Beauty Salons",
+        "items": [
+          "Photograph the work environment in a clean and attractive way.",
+          "Use photos for the results of beauty services (before/after).",
+          "Avoid using photos from the internet.",
+          "Write every service in detail: makeup - haircut - oil bath - henna engraving - pedicure and manicure - skin cleaning - keratin - and others.",
+          "Is the service available at the salon only, or can it be booked \"at home\"?",
+          "Add any seasonal discounts or packages (e.g.: \"Full care package for 199 AED only\").",
+          "Add the name of the worker or hairdresser and the nearest famous landmarks.",
+          "Ad Title: Good example: \"Haircut in Abu Dhabi, 50 AED\" or \"Package of 10 services for 100 AED\"."
+        ]
+      },
+      {
+        "category": "Shipping & Delivery",
+        "items": [
+          "Specify delivery locations: inside the same city only, between cities, inside the country only, or international.",
+          "Mention the vehicle type: bike, small car, van, truck...",
+          "Is the delivery on the same day? In how many hours? Is there an urgent delivery service?",
+          "Is there a cash on delivery option? Are there any additional fees?",
+          "Do you transport household items? Restaurant orders? Documents? Furniture?...",
+          "Mention the availability of tracking or delivery confirmation, and a guarantee for the shipment safety."
+        ]
+      },
+      {
+        "category": "Maintenance Services",
+        "items": [
+          "Specify accurately what you offer: AC repair, electrical wiring, water heater installation, painting, dismantling, plumbing, etc.",
+          "Are you an individual technician? An integrated maintenance company?",
+          "Mention the estimated duration to complete each type of work.",
+          "Put examples on prices or just the checkup cost (if any).",
+          "Add photos of your previous projects or before/after the repair.",
+          "Do you receive orders around the clock? Emergencies? Specific appointments only?",
+          "Specify the areas you cover (e.g.: only Dubai - all Emirates - Ajman and Sharjah only...)."
+        ]
+      }
+    ]
   }
 }
