@@ -90,16 +90,62 @@ export default function Footer() {
                 </div>
 
                 {/* Social */}
-                <div>
-                    <h3 className="font-semibold text-lg mb-4">
-                        {t("footer_follow_us")}
-                    </h3>
+                <div className="flex flex-col items-center md:items-start gap-4">
 
-                    <div className="flex gap-4">
-                        <Facebook className="cursor-pointer hover:text-secondary" />
-                        <Instagram className="cursor-pointer hover:text-secondary" />
-                        <Twitter className="cursor-pointer hover:text-secondary" />
+                    {/* Social Media Section */}
+                    <div className="flex flex-col items-center md:items-start">
+                        <h3 className="font-semibold text-lg">
+                            {t("footer_follow_us")}
+                        </h3>
+                        <div className="flex gap-3">
+                            {[
+                                { Icon: Facebook, color: "hover:bg-blue-600" },
+                                { Icon: Instagram, color: "hover:bg-pink-600" },
+                                { Icon: Twitter, color: "hover:bg-sky-500" },
+                            ].map(({ Icon, color }, index) => (
+                                <div
+                                    key={index}
+                                    className="p-2.5 text-primary-900 transition-all duration-300 hover:text-secondary  cursor-pointer"
+                                >
+                                    <Icon size={20} />
+                                </div>
+                            ))}
+                        </div>
                     </div>
+
+                    {/* App Download Section */}
+                    <div className="flex flex-col items-center md:items-start gap-4">
+                        <h3 className="font-semibold text-lg ">
+                            {t("download_app")}
+                        </h3>
+                        <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                            <Link
+                                href="https://play.google.com/store/apps/details?id=com.shamel.souq"
+                                className="transition-transform duration-200 hover:scale-105 active:scale-95 shadow-md rounded-lg overflow-hidden"
+                            >
+                                <Image
+                                    src="/GooglePlay.svg"
+                                    alt="Get it on Google Play"
+                                    width={135}
+                                    height={40}
+                                    className="h-10 w-auto object-contain bg-black"
+                                />
+                            </Link>
+                            <Link
+                                href="https://apps.apple.com/us/app/souq-shamel/id6748286431"
+                                className="transition-transform duration-200 hover:scale-105 active:scale-95 shadow-md rounded-lg overflow-hidden"
+                            >
+                                <Image
+                                    src="/AppStore.svg"
+                                    alt="Download on the App Store"
+                                    width={135}
+                                    height={40}
+                                    className="h-10 w-auto object-contain bg-black"
+                                />
+                            </Link>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
