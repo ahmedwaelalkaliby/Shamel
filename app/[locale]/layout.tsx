@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/Logo.svg",
   },
+  colorScheme: "light",
 };
 
 export default async function RootLayout({
