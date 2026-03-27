@@ -11,7 +11,7 @@ export const createAdSchema = z.object({
   location: z.string().optional(),
   phone: z.string().min(1, "Phone is required"),
   email: z.string().email("Invalid email").optional().or(z.literal("")),
-  images: z.array(z.any()).min(1, "At least one image is required"),
+  images: z.array(z.any()).optional().default([]),
   video: z.any().optional(),
 });
 

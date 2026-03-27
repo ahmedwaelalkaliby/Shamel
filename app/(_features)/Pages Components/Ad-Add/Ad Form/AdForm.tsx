@@ -29,7 +29,7 @@ export default function AdForm() {
         resetField,
         formState: { errors },
     } = useForm<CreateAdFormData>({
-        resolver: zodResolver(createAdSchema),
+        resolver: zodResolver(createAdSchema) as any,
         defaultValues: {
             images: [],
             is_featured: false,
@@ -93,9 +93,11 @@ export default function AdForm() {
         formData.append("phone", data.phone);
         if (data.email) formData.append("email", data.email);
         
-        data.images.forEach((image) => {
-            formData.append("images[]", image);
-        });
+        if (data.images && Array.isArray(data.images)) {
+            data.images.forEach((image) => {
+                formData.append("images[]", image);
+            });
+        }
 
         if (data.video) {
             formData.append("video", data.video);
@@ -105,7 +107,7 @@ export default function AdForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className='space-y-4 md:space-y-8'>
+        <form onSubmit={handleSubmit(onSubmit as any)} className='space-y-4 md:space-y-8'>
             {/* title section */}
             <div className='space-y-4'>
                 <label htmlFor="title" className='text-lg md:text-xl text-primary-900 font-bold mb-2 block'>
