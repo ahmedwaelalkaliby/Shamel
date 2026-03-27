@@ -211,5 +211,33 @@
         ]
       }
     ]
+  },
+  "AdForm": {
+    "title": "Ad Title",
+    "title_placeholder": "Enter ad title",
+    "category": "Ad Category",
+    "category_placeholder": "Select Category",
+    "city": "City",
+    "city_placeholder": "Please select city",
+    "description": "Ad Description",
+    "description_subtext": "For more views: enter more details and info about the product or service to increase ad promotion",
+    "description_placeholder": "Enter ad description",
+    "images_title": "Product or Service Photos",
+    "images_subtext": "For more views: enter clear photos and video of the product or service, photos from different angles.",
+    "location": "Product or Service Location",
+    "location_subtext": "Do you want to add the product or service location? Consumers prefer clarification of the product or service location.",
+    "add_location": "Add Location",
+    "price": "Price",
+    "price_subtext": "Enter the product or service price",
+    "price_placeholder": "Enter price",
+    "contact_methods": "Contact Methods",
+    "email": "Email",
+    "email_placeholder": "Enter email",
+    "phone": "Mobile Number",
+    "phone_placeholder": "Enter mobile number",
+    "contact_only_app": "Contact via app messages only",
+    "publish_btn": "Publish Ad",
+    "success_msg": "Ad published successfully!",
+    "error_msg": "Error publishing ad. Please try again."
   }
-}
+}

@@ -15,4 +15,15 @@ export const adService = {
     });
     return response.data;
   },
+
+  createAd: async (formData: FormData, locale: string): Promise<any> => {
+    const response = await axiosInstance.post("/ads", formData, {
+      headers: { 
+        "Accept-Language": locale,
+        "Content-Type": "multipart/form-data" 
+      },
+    });
+    return response.data;
+  },
 };
+
