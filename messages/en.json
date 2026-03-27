@@ -275,5 +275,8 @@
     "published_at": "Published: ",
     "report_ad": "Report Ad",
     "not_specified": "Not Specified"
+  },
+  "Notifications": {
+    "no_notifications": "No notifications found"
   }
 }

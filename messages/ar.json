@@ -275,5 +275,8 @@
     "published_at": "نُشر في: ",
     "report_ad": "الإبلاغ عن الإعلان",
     "not_specified": "غير محدد"
+  },
+  "Notifications": {
+    "no_notifications": "لا توجد إشعارات"
   }
 }
