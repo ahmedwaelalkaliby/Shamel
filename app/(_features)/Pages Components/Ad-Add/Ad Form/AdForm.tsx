@@ -135,7 +135,7 @@ export default function AdForm() {
                         disabled={categoriesLoading}
                         className={`w-full bg-white border-2 ${errors.category_id ? 'border-red-500' : 'border-primary-500'} rounded-lg p-4 outline-none focus:border-secondary transition-colors appearance-none disabled:bg-gray-100`}
                     >
-                        <option value="">{categoriesLoading ? "Loading..." : t("category_placeholder")}</option>
+                        <option value="">{categoriesLoading ? t("loading") : t("category_placeholder")}</option>
                         {categoriesData?.data?.map((cat: any) => (
                             <option key={cat.id} value={cat.id.toString()}>
                                 {cat.name}
@@ -148,7 +148,7 @@ export default function AdForm() {
                 {/* sub-category section (category_detail_id) */}
                 <div className='space-y-4'>
                     <label htmlFor="category_detail_id" className='text-lg md:text-xl text-primary-900 font-bold mb-2 block'>
-                        {locale === "ar" ? "القسم الفرعي" : "Sub-Category"}
+                        {t("sub_category")}
                     </label>
                     <select 
                         {...register("category_detail_id")}
@@ -156,7 +156,7 @@ export default function AdForm() {
                         disabled={!selectedCategoryId || detailsLoading}
                         className={`w-full bg-white border-2 ${errors.category_detail_id ? 'border-red-500' : 'border-primary-500'} rounded-lg p-4 outline-none focus:border-secondary transition-colors appearance-none disabled:bg-gray-100`}
                     >
-                        <option value="">{detailsLoading ? "Loading..." : (locale === "ar" ? "اختر القسم الفرعي" : "Select Sub-Category")}</option>
+                        <option value="">{detailsLoading ? t("loading") : t("select_sub_category")}</option>
                         {categoryDetailsData?.data?.details?.map((detail: any) => (
                             <option key={detail.id} value={detail.id.toString()}>
                                 {locale === "ar" ? detail.name_ar : detail.name_en}
@@ -178,15 +178,11 @@ export default function AdForm() {
                     className={`w-full bg-white border-2 ${errors.city_id ? 'border-red-500' : 'border-primary-500'} rounded-lg p-4 outline-none focus:border-secondary transition-colors appearance-none`}
                 >
                     <option value="">{t("city_placeholder")}</option>
-                    <option value="1">أبو ظبي</option>
-                    <option value="2">دبي</option>
-                    <option value="3">الشارقة</option>
-                    <option value="4">عجمان</option>
-                    <option value="5">أم القيوين</option>
-                    <option value="6">رأس الخيمة</option>
-                    <option value="7">الفجيرة</option>
-                    <option value="8">العين</option>
-                    <option value="9">الظفرة</option>
+                    {Array.from({ length: 9 }, (_, i) => i + 1).map((cityId) => (
+                        <option key={cityId} value={cityId.toString()}>
+                            {t(`cities.${cityId}`)}
+                        </option>
+                    ))}
                 </select>
                 {errors.city_id && <p className="text-red-500 text-sm font-medium">{errors.city_id.message}</p>}
             </div>
@@ -356,7 +352,7 @@ export default function AdForm() {
                         className='w-6 h-6 cursor-pointer accent-secondary border-2 border-secondary rounded' 
                     />
                     <label htmlFor="is_featured" className='text-lg md:text-xl text-primary-900 font-bold cursor-pointer select-none'>
-                        إعلان مميز (Featured Ad)
+                        {t("featured_ad")}
                     </label>
                 </div>
                 

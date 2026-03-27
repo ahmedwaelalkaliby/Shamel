@@ -1,4 +1,8 @@
 {
+  "Common": {
+    "more": "More",
+    "currency": "AED"
+  },
   "HomePage": {
     "title": "Welcome to Shamel",
     "description": "The best platform for your needs."
@@ -238,6 +242,38 @@
     "contact_only_app": "Contact via app messages only",
     "publish_btn": "Publish Ad",
     "success_msg": "Ad published successfully!",
-    "error_msg": "Error publishing ad. Please try again."
+    "error_msg": "Error publishing ad. Please try again.",
+    "sub_category": "Sub-Category",
+    "select_sub_category": "Select Sub-Category",
+    "loading": "Loading...",
+    "featured_ad": "Featured Ad",
+    "cities": {
+      "1": "Abu Dhabi",
+      "2": "Dubai",
+      "3": "Sharjah",
+      "4": "Ajman",
+      "5": "Umm Al Quwain",
+      "6": "Ras Al Khaimah",
+      "7": "Fujairah",
+      "8": "Al Ain",
+      "9": "Al Dhafra"
+    }
+  },
+  "AddAd": {
+    "header_sub": "Your selling opportunity starts here",
+    "header_main": "Add your ad now",
+    "tips_question": "Want tips to get the best result for your ad?",
+    "click_here": "Click here"
+  },
+  "AdDetails": {
+    "title": "Ad Details",
+    "currency": "AED",
+    "mobile": "Mobile Number",
+    "advertiser_type": "Advertiser Type",
+    "working_hours": "Working Hours",
+    "category": "Category",
+    "published_at": "Published: ",
+    "report_ad": "Report Ad",
+    "not_specified": "Not Specified"
   }
 }
