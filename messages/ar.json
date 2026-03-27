@@ -211,5 +211,41 @@
         ]
       }
     ]
+  },
+  "Search": {
+    "page_title": "البحث",
+    "search_placeholder": "بحث",
+    "show_commercial": "عرض الأنشطة التجارية",
+    "sort": "ترتيب",
+    "filter": "تصفية",
+    "sort_newest": "الأحدث",
+    "sort_oldest": "الأقدم",
+    "sort_price_low": "السعر: من الأقل إلى الأعلى",
+    "sort_price_high": "السعر: من الأعلى إلى الأقل",
+    "category": "القسم",
+    "all_categories": "جميع الأقسام",
+    "city": "المدينة",
+    "all_cities": "جميع المدن",
+    "price_range": "نطاق السعر",
+    "price_min": "الحد الأدنى",
+    "price_max": "الحد الأعلى",
+    "today_offers": "عروض اليوم فقط",
+    "apply_filters": "تطبيق",
+    "reset_filters": "إعادة تعيين",
+    "ads_title": "الإعلانات",
+    "companies_title": "الشركات",
+    "result_count": "نتيجة",
+    "no_results": "لا توجد نتائج",
+    "loading": "جاري التحميل...",
+    "currency": "AED",
+    "cities": {
+      "abu_dhabi": "أبوظبي",
+      "dubai": "دبي",
+      "sharjah": "الشارقة",
+      "ajman": "عجمان",
+      "umm_al_quwain": "أم القيوين",
+      "ras_al_khaimah": "رأس الخيمة",
+      "fujairah": "الفجيرة"
+    }
   }
 }

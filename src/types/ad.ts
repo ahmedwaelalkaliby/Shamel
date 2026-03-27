@@ -11,6 +11,12 @@ export interface Ad {
   description: string;
   images: AdImage[];
   featured: number;
+  location?: string | null;
+  category_id?: number;
+  category_detail_id?: number;
+  city_id?: number;
+  phone?: string;
+  user_id?: number;
   // Add other fields as they appear in the API
 }
 
@@ -19,3 +25,5 @@ export interface AdsResponse {
   data: Ad[];
   message: string;
 }
+
+
