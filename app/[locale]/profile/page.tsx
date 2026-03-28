@@ -5,7 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { Link, useRouter } from '@/i18n/navigation';
 import { useAuth } from '@/src/hooks/useAuth';
 import Image from 'next/image';
-import LanguageModal from '@/app/(_features)/Global Components/Language Modal/LanguageModal';
+import LanguageModal from '../../(_features)/Global Components/Language Modal/LanguageModal';
 import { 
   Pencil, 
   LogOut, 

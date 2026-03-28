@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchStore } from "@/src/store/useSearchStore";
 import { useTranslations } from "next-intl";
-import CustomModal from "@/app/(_features)/Global Components/Custom Modal/CustomModal";
+import CustomModal from "../../Global Components/Custom Modal/CustomModal";
 import { Category } from "@/src/types/category";
 
 interface FilterModalProps {

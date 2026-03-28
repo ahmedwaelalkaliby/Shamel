@@ -1,5 +1,5 @@
 import { categoryService } from '@/src/services/categoryService';
-import AdBigCard from '@/app/(_features)/Pages Components/Ads/AdBigCard';
+import AdBigCard from '../../../(_features)/Pages Components/Ads/AdBigCard';
 
 export default async function SubCategoryDetailPage({
   params

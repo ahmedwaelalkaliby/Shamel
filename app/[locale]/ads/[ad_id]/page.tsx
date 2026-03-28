@@ -1,5 +1,5 @@
-import ProductSwiper from '@/app/(_features)/Pages Components/Ad Details/ProductSwiper'
-import AdDetails from '@/app/(_features)/Pages Components/Ad Details/AdDetails';
+import ProductSwiper from '../../../(_features)/Pages Components/Ad Details/ProductSwiper'
+import AdDetails from '../../../(_features)/Pages Components/Ad Details/AdDetails';
 import { Phone, MessageSquareText, Share2, Heart } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';

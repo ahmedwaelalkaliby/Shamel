@@ -15,7 +15,7 @@ export default function CustomModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 pb-20 flex items-end md:items-center justify-center">
+    <div className="fixed inset-0 z-50 pb-23 flex items-end md:items-center justify-center">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30" onClick={onClose} />
 

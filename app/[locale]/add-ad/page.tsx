@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation';
-import AdForm from '@/app/(_features)/Pages Components/Ad-Add/Ad Form/AdForm';
+import AdForm from '../../(_features)/Pages Components/Ad-Add/Ad Form/AdForm';
 import { useTranslations, useLocale } from 'next-intl';
 
 export default function Page() {

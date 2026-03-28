@@ -7,7 +7,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { AiOutlineUser } from "react-icons/ai";
 import { useAuth } from "@/src/hooks/useAuth";
-import LanguageModal from "@/app/(_features)/Global Components/Language Modal/LanguageModal";
+import LanguageModal from "../../Global Components/Language Modal/LanguageModal";
 
 export default function Navbar() {
     const t = useTranslations("Navigation");

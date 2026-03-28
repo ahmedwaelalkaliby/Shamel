@@ -1,5 +1,5 @@
 import { categoryService } from '@/src/services/categoryService';
-import ListLink from '@/app/(_features)/Global Components/List Link/ListLink';
+import ListLink from '../../(_features)/Global Components/List Link/ListLink';
 
 export default async function CategoryPage({
   params
