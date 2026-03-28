@@ -37,19 +37,27 @@ export default function AdsList({ ads, loading, locale, showCommercial }: AdsLis
       {/* Cards */}
       {ads.length > 0 ? (
         <div className="flex flex-col gap-3">
-          {ads.map((ad) => (
-            <AdCard
-              key={ad.id}
-              id={ad.id}
-              title={ad.title}
-              category={undefined}
-              price={showCommercial ? undefined : `${t("currency")} ${ad.price}`}
-              imageUrl={ad.images?.[0]?.image_path}
-              userName={undefined}
-              location={ad.location}
-              showCommercial={showCommercial}
-            />
-          ))}
+          {ads.map((ad: any) => {
+            const displayTitle = showCommercial ? ad.business_name || ad.title : ad.title;
+            const displayImage = showCommercial 
+              ? (ad.activity_images?.[0] || ad.images?.[0]?.image_path)
+              : ad.images?.[0]?.image_path;
+            const displayLocation = showCommercial ? ad.location_1 || ad.location : ad.location;
+
+            return (
+              <AdCard
+                key={ad.id}
+                id={ad.id}
+                title={displayTitle}
+                category={undefined}
+                price={showCommercial ? undefined : `${t("currency")} ${ad.price}`}
+                imageUrl={displayImage}
+                userName={ad.user?.username}
+                location={displayLocation}
+                showCommercial={showCommercial}
+              />
+            );
+          })}
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center py-16 text-primary-400">

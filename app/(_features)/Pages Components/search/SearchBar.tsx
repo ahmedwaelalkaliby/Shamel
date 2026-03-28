@@ -13,6 +13,7 @@ export default function SearchBar() {
       <input
         id="search-input"
         type="text"
+        autoFocus
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder={t("search_placeholder")}

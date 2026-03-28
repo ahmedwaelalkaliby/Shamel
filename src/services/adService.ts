@@ -25,6 +25,14 @@ export const adService = {
     return response.data;
   },
 
+  searchAds: async (locale: string, params: SearchAdsParams): Promise<AdsResponse> => {
+    const response = await axiosInstance.get("/ads/ads/search", {
+      headers: { "Accept-Language": locale },
+      params,
+    });
+    return response.data;
+  },
+
   createAd: async (formData: FormData, locale: string): Promise<any> => {
     const response = await axiosInstance.post("/ads", formData, {
       headers: { 

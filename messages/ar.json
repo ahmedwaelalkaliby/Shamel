@@ -278,5 +278,39 @@
   },
   "Notifications": {
     "no_notifications": "لا توجد إشعارات"
+  },
+  "Search": {
+    "sort": "الترتيب",
+    "search_placeholder": "ابحث هنا...",
+    "filter": "تصفية",
+    "show_commercial": "عرض الشركات",
+    "category": "القسم",
+    "all_categories": "جميع الأقسام",
+    "city": "المدينة",
+    "all_cities": "جميع المدن",
+    "price_range": "نطاق السعر",
+    "price_min": "الأدنى",
+    "price_max": "الأقصى",
+    "today_offers": "عروض اليوم",
+    "apply_filters": "تطبيق التصفية",
+    "reset_filters": "إعادة ضبط",
+    "companies_title": "الشركات",
+    "ads_title": "الإعلانات",
+    "result_count": "نتائج",
+    "currency": "درهم",
+    "no_results": "لا توجد نتائج",
+    "cities": {
+      "abu_dhabi": "أبو ظبي",
+      "dubai": "دبي",
+      "sharjah": "الشارقة",
+      "ajman": "عجمان",
+      "umm_al_quwain": "أم القيوين",
+      "ras_al_khaimah": "رأس الخيمة",
+      "fujairah": "الفجيرة"
+    },
+    "sort_newest": "الأحدث",
+    "sort_oldest": "الأقدم",
+    "sort_price_low": "السعر: من الأقل للأعلى",
+    "sort_price_high": "السعر: من الأعلى للأقل"
   }
 }

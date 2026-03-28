@@ -19,6 +19,7 @@ export default function Navbar() {
     const [isLangModalOpen, setIsLangModalOpen] = useState(false);
 
     const isHomePage = pathname === "/";
+    const isSearchPage = pathname.startsWith("/search");
 
     const getPageTitle = () => {
         if (pathname.startsWith("/profile")) return tProfile("profile_title");
@@ -52,14 +53,21 @@ export default function Navbar() {
                 </div>
 
                 {/* Search (Desktop) */}
-                <div className="hidden lg:flex items-center border rounded-lg px-3 py-2 w-[300px] bg-white">
-                    <Search size={18} className="text-primary-500" />
-                    <input
-                        type="text"
-                        placeholder={t("search_placeholder")}
-                        className="outline-none px-2 w-full bg-transparent"
-                    />
-                </div>
+                {!isSearchPage && (
+                    <div 
+                        className="hidden lg:flex items-center border rounded-lg px-3 py-2 w-[300px] bg-white cursor-text"
+                        onClick={() => router.push("/search")}
+                    >
+                        <Search size={18} className="text-primary-500" />
+                        <input
+                            type="text"
+                            placeholder={t("search_placeholder")}
+                            className="outline-none px-2 w-full bg-transparent cursor-pointer"
+                            onFocus={() => router.push("/search")}
+                            readOnly
+                        />
+                    </div>
+                )}
 
                 {/* Actions - Last in JSX means Left in RTL */}
                 <div className="flex items-center gap-4">

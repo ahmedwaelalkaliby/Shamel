@@ -66,21 +66,32 @@ export default function SearchPageContent() {
     async function loadCommercialStores() {
       setLoading(true);
       try {
-        const response = await adService.getCommercialStores(locale);
+        const params: SearchAdsParams = { type: "commercial" };
+        if (debouncedQuery) params.search = debouncedQuery;
+        if (selectedCategory) params.category_id = selectedCategory;
+        if (selectedCity) params.city_id = selectedCity;
+        if (priceMin) params.min_price = priceMin;
+        if (priceMax) params.max_price = priceMax;
+
+        const response = await adService.searchAds(locale, params);
         console.log("Commercial Stores Response:", response);
 
         // Normalize: handle different response shapes
         let stores: any[] = [];
         if (response.status) {
-          const rawData = response.data;
-          if (Array.isArray(rawData)) {
-            stores = rawData;
-          } else if (
-            rawData &&
-            typeof rawData === "object" &&
-            "data" in rawData
-          ) {
-            stores = Array.isArray(rawData.data) ? rawData.data : [];
+          if (Array.isArray((response as any).commercials)) {
+            stores = (response as any).commercials;
+          } else {
+            const rawData = response.data;
+            if (Array.isArray(rawData)) {
+              stores = rawData;
+            } else if (
+              rawData &&
+              typeof rawData === "object" &&
+              "data" in rawData
+            ) {
+              stores = Array.isArray((rawData as any).data) ? (rawData as any).data : [];
+            }
           }
         }
         setCommercialStores(stores);
@@ -92,7 +103,15 @@ export default function SearchPageContent() {
       }
     }
     loadCommercialStores();
-  }, [locale, showCommercial]);
+  }, [
+    locale,
+    showCommercial,
+    debouncedQuery,
+    selectedCategory,
+    selectedCity,
+    priceMin,
+    priceMax,
+  ]);
 
   // Fetch regular ads when NOT in commercial mode
   useEffect(() => {
