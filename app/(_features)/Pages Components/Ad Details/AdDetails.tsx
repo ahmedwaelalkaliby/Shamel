@@ -1,5 +1,6 @@
 import React from 'react'
 import { Phone, Clock, Store, Building2, MapPin } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface AdDetailsProps {
     ad: {
@@ -13,6 +14,8 @@ interface AdDetailsProps {
 }
 
 export default function AdDetails({ ad }: AdDetailsProps) {
+    const t = useTranslations('AdDetails');
+
     return (
         <div className='p-6 bg-white rounded-3xl shadow-sm border border-gray-100 max-w-5xl mx-auto'>
 
@@ -30,7 +33,7 @@ export default function AdDetails({ ad }: AdDetailsProps) {
                     <h3 className="text-secondary font-bold text-xl">{ad.name}</h3>
                     <div className="flex items-center text-primary text-sm mt-1">
                         <MapPin size={16} />
-                        <span className="mr-1">{ad.location}</span> 
+                        <span className="mx-1">{ad.location}</span> 
                     </div>
                 </div>
                
@@ -44,28 +47,28 @@ export default function AdDetails({ ad }: AdDetailsProps) {
                 {/* Mobile Number */}
                 <div className="flex flex-col items-center">
                     <Phone className="text-secondary mb-2" size={24} />
-                    <span className="text-primary  mb-1">رقم الموبايل</span>
-                    <span className="font-bold dir-ltr">{ad.mobile}</span>
+                    <span className="text-primary  mb-1">{t('mobile')}</span>
+                    <span className="font-bold dir-ltr" dir="ltr">{ad.mobile}</span>
                 </div>
 
                 {/* Advertiser Type */}
                 <div className="flex flex-col items-center">
                     <Building2 className="text-secondary mb-2" size={24} />
-                    <span className="text-primary mb-1 text-center">Advertiser Type</span>
+                    <span className="text-primary mb-1 text-center">{t('advertiser_type')}</span>
                     <span className="font-bold">{ad.advertiserType}</span>
                 </div>
 
                 {/* Working Hours */}
                 <div className="flex flex-col items-center">
                     <Clock className="text-secondary mb-2" size={24} />
-                    <span className="text-primary  mb-1">ساعات العمل</span>
+                    <span className="text-primary  mb-1">{t('working_hours')}</span>
                     <span className="font-bold">{ad.workingHours}</span>
                 </div>
 
                 {/* Category */}
                 <div className="flex flex-col items-center">
                     <Store className="text-secondary mb-2" size={24} />
-                    <span className="text-primary mb-1">Category</span>
+                    <span className="text-primary mb-1">{t('category')}</span>
                     <span className="font-bold">{ad.category}</span>
                 </div>
 
@@ -73,4 +76,4 @@ export default function AdDetails({ ad }: AdDetailsProps) {
 
         </div>
     )
-}
+}

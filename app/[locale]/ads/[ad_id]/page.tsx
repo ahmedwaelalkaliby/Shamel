@@ -2,9 +2,11 @@ import ProductSwiper from '@/app/(_features)/Pages Components/Ad Details/Product
 import AdDetails from '@/app/(_features)/Pages Components/Ad Details/AdDetails';
 import { Phone, MessageSquareText, Share2, Heart } from 'lucide-react';
 import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 
 export default async function AdDetailsPage({ params }: { params: Promise<{ ad_id: string; locale: string }> }) {
     const { ad_id, locale } = await params;
+    const t = await getTranslations({ locale, namespace: 'AdDetails' });
 
     const res = await fetch(`https://souqshamel.com/api/ads/${ad_id}`, { 
         next: { revalidate: 60 },
@@ -20,6 +22,7 @@ export default async function AdDetailsPage({ params }: { params: Promise<{ ad_i
     }
 
     const { ad } = data;
+    const notSpecified = t('not_specified');
     
     const images = ad.images && ad.images.length > 0 
         ? ad.images.map((img: any) => {
@@ -39,8 +42,8 @@ export default async function AdDetailsPage({ params }: { params: Promise<{ ad_i
                 <h2 className='text-xl md:text-2xl font-bold'>
                     {ad.title}
                 </h2>
-                <p className=' text-lg md:text-2xl font-bold whitespace-nowrap text-primary'>
-                    {ad.price} {locale === 'ar' ? 'درهم' : 'AED'}
+                <p className=' text-lg md:text-2xl font-bold whitespace-nowrap text-primary' dir='ltr'>
+                    {ad.price} {t('currency')}
                 </p>
             </div>
 
@@ -54,15 +57,15 @@ export default async function AdDetailsPage({ params }: { params: Promise<{ ad_i
             {/* ad details section */}
             <div>
                 <h2 className='text-xl md:text-2xl font-bold mb-4 text-start'>
-                    {locale === 'ar' ? 'تفاصيل الإعلان' : 'Ad Details'}
+                    {t('title')}
                 </h2>
                 <AdDetails ad={{ 
-                    name: ad.user_name || "Not Specified", 
-                    location: ad.city_name || "Not Specified", 
-                    mobile: ad.phone || "Not Specified", 
-                    advertiserType: "Not Specified", 
-                    workingHours: "Not Specified", 
-                    category: ad.category_name || "Not Specified" 
+                    name: ad.user_name || notSpecified, 
+                    location: ad.city_name || notSpecified, 
+                    mobile: ad.phone || notSpecified, 
+                    advertiserType: notSpecified, 
+                    workingHours: notSpecified, 
+                    category: ad.category_name || notSpecified 
                 }} />
             </div>
 
@@ -71,7 +74,7 @@ export default async function AdDetailsPage({ params }: { params: Promise<{ ad_i
                 {/* Date Text */}
                 <div className="w-full text-center">
                     <span className="text-primary font-bold md:text-xl">
-                        {locale === 'ar' ? 'نُشر في: ' : 'Published: '} 
+                        {t('published_at')} 
                         {ad.created_at ? new Date(ad.created_at).toLocaleDateString(locale === 'ar' ? 'ar-AE' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}
                     </span>
                 </div>
@@ -104,7 +107,7 @@ export default async function AdDetailsPage({ params }: { params: Promise<{ ad_i
             <div className="p-6 flex flex-col items-center gap-6">
                 <button className="px-6 py-3 bg-secondary text-white rounded-xl flex items-center justify-center shadow-sm hover:bg-secondary/80 active:scale-95 transition-colors">
                     <p className='text-xl md:text-2xl font-medium'>
-                        {locale === 'ar' ? 'الإبلاغ عن الإعلان' : 'Report Ad'}
+                        {t('report_ad')}
                     </p>
                 </button>
             </div>

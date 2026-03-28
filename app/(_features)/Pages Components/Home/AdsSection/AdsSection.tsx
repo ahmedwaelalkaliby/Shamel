@@ -6,8 +6,8 @@ import { AdCard } from './AdCard';
 import { adService } from '@/src/services/adService';
 import { favoriteService } from '@/src/services/favoriteService';
 import { Ad, AdsResponse } from '@/src/types/ad';
-import { useLocale } from 'next-intl';
-import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -18,6 +18,7 @@ interface AdsSectionProps {
 
 export default function AdsSection({ title, type }: AdsSectionProps) {
     const locale = useLocale();
+    const t = useTranslations('Common');
     const [ads, setAds] = useState<Ad[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -69,7 +70,7 @@ export default function AdsSection({ title, type }: AdsSectionProps) {
                         {title}
                     </h2>
                     <Link href="/ads" className="text-blue-900 font-bold text-sm md:text-xl underline">
-                        {locale === 'ar' ? 'المزيد' : 'More'}
+                        {t('more')}
                     </Link>
                 </div>
 
@@ -93,7 +94,7 @@ export default function AdsSection({ title, type }: AdsSectionProps) {
                                 <AdCard
                                     id={ad.id}
                                     title={ad.title}
-                                    price={`${ad.price} ${locale === 'ar' ? 'درهم' : 'AED'}`}
+                                    price={`${ad.price} ${t('currency')}`}
                                     imageUrl={ad.images?.[0]?.image_path || ''}
                                     locale={locale}
                                 />

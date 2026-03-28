@@ -1,6 +1,5 @@
-
 import { categoryService } from '@/src/services/categoryService';
-import { Link } from '@/i18n/navigation';
+import ListLink from '@/app/(_features)/Global Components/List Link/ListLink';
 
 export default async function CategoryPage({
   params
@@ -36,17 +35,12 @@ export default async function CategoryPage({
           {details && details.length > 0 && (
             <div className="space-y-4 mb-8">
               {details.map((subCategory) => (
-                <Link
-                  key={subCategory.id}
-                  href={`/${category_id}/${subCategory.id}`}
-                  className="group flex items-center bg-tertiary p-5 rounded-2xl shadow-md hover:bg-tertiary/80 transition-all duration-200 active:scale-[0.98] border border-white/20"
-                >
-                  <div className="flex-1 flex items-center justify-start gap-3">
-                    <span className="text-xl font-extrabold text-primary-900">
-                      {locale === 'ar' ? subCategory.name_ar : subCategory.name_en}
-                    </span>
-                  </div>
-                </Link>
+                <ListLink
+                    key={subCategory.id}
+                    href={`/${category_id}/${subCategory.id}`}
+                    name={locale === 'ar' ? subCategory.name_ar : subCategory.name_en}
+                    locale={locale}
+                />
               ))}
             </div>
           )}

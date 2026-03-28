@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 interface AdCardProps {
     id: number | string;
@@ -9,13 +9,13 @@ interface AdCardProps {
     locale?: string;
 }
 
-export const AdCard = ({ id, title, price, imageUrl, locale }: AdCardProps) => {
+export const AdCard = ({ id, title, price, imageUrl }: AdCardProps) => {
     const fullImageUrl = imageUrl.startsWith('http')
         ? imageUrl
         : `https://souqshamel.com/storage/app/public/${imageUrl}`;
 
     return (
-        <Link href={`/${locale || 'en'}/ads/${id}`} className="block h-full group">
+        <Link href={`/ads/${id}`} className="block h-full group">
             <div className="bg-white rounded-[15px] md:rounded-[25px] overflow-hidden shadow-sm border border-gray-100 h-full flex flex-col p-2 md:p-4 transition-all duration-300 hover:shadow-md h-full">
                 {/* Image Container - Aspect ratio is key for consistency */}
                 <div className="relative aspect-[4/5] w-full mb-2 md:mb-4">

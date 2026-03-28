@@ -1,4 +1,8 @@
 {
+  "Common": {
+    "more": "More",
+    "currency": "AED"
+  },
   "HomePage": {
     "title": "Welcome to Shamel",
     "description": "The best platform for your needs."
@@ -212,40 +216,67 @@
       }
     ]
   },
-  "Search": {
-    "page_title": "Search",
-    "search_placeholder": "Search",
-    "show_commercial": "Show Commercial Activities",
-    "sort": "Sort",
-    "filter": "Filter",
-    "sort_newest": "Newest",
-    "sort_oldest": "Oldest",
-    "sort_price_low": "Price: Low to High",
-    "sort_price_high": "Price: High to Low",
-    "category": "Category",
-    "all_categories": "All Categories",
+  "AdForm": {
+    "title": "Ad Title",
+    "title_placeholder": "Enter ad title",
+    "category": "Ad Category",
+    "category_placeholder": "Select Category",
     "city": "City",
-    "all_cities": "All Cities",
-    "price_range": "Price Range",
-    "price_min": "Min",
-    "price_max": "Max",
-    "today_offers": "Today's Offers Only",
-    "apply_filters": "Apply Filters",
-    "reset_filters": "Reset",
-    "ads_title": "Ads",
-    "companies_title": "Companies",
-    "result_count": "Result",
-    "no_results": "No results found",
+    "city_placeholder": "Please select city",
+    "description": "Ad Description",
+    "description_subtext": "For more views: enter more details and info about the product or service to increase ad promotion",
+    "description_placeholder": "Enter ad description",
+    "images_title": "Product or Service Photos",
+    "images_subtext": "For more views: enter clear photos and video of the product or service, photos from different angles.",
+    "location": "Product or Service Location",
+    "location_subtext": "Do you want to add the product or service location? Consumers prefer clarification of the product or service location.",
+    "add_location": "Add Location",
+    "price": "Price",
+    "price_subtext": "Enter the product or service price",
+    "price_placeholder": "Enter price",
+    "contact_methods": "Contact Methods",
+    "email": "Email",
+    "email_placeholder": "Enter email",
+    "phone": "Mobile Number",
+    "phone_placeholder": "Enter mobile number",
+    "contact_only_app": "Contact via app messages only",
+    "publish_btn": "Publish Ad",
+    "success_msg": "Ad published successfully!",
+    "error_msg": "Error publishing ad. Please try again.",
+    "sub_category": "Sub-Category",
+    "select_sub_category": "Select Sub-Category",
     "loading": "Loading...",
-    "currency": "AED",
+    "featured_ad": "Featured Ad",
     "cities": {
-      "abu_dhabi": "Abu Dhabi",
-      "dubai": "Dubai",
-      "sharjah": "Sharjah",
-      "ajman": "Ajman",
-      "umm_al_quwain": "Umm Al Quwain",
-      "ras_al_khaimah": "Ras Al Khaimah",
-      "fujairah": "Fujairah"
+      "1": "Abu Dhabi",
+      "2": "Dubai",
+      "3": "Sharjah",
+      "4": "Ajman",
+      "5": "Umm Al Quwain",
+      "6": "Ras Al Khaimah",
+      "7": "Fujairah",
+      "8": "Al Ain",
+      "9": "Al Dhafra"
     }
+  },
+  "AddAd": {
+    "header_sub": "Your selling opportunity starts here",
+    "header_main": "Add your ad now",
+    "tips_question": "Want tips to get the best result for your ad?",
+    "click_here": "Click here"
+  },
+  "AdDetails": {
+    "title": "Ad Details",
+    "currency": "AED",
+    "mobile": "Mobile Number",
+    "advertiser_type": "Advertiser Type",
+    "working_hours": "Working Hours",
+    "category": "Category",
+    "published_at": "Published: ",
+    "report_ad": "Report Ad",
+    "not_specified": "Not Specified"
+  },
+  "Notifications": {
+    "no_notifications": "No notifications found"
   }
 }

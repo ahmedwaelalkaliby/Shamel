@@ -1,4 +1,8 @@
 {
+  "Common": {
+    "more": "المزيد",
+    "currency": "درهم"
+  },
   "HomePage": {
     "title": "مرحباً بك في شامل",
     "description": "أفضل منصة لتلبية احتياجاتك."
@@ -212,40 +216,67 @@
       }
     ]
   },
-  "Search": {
-    "page_title": "البحث",
-    "search_placeholder": "بحث",
-    "show_commercial": "عرض الأنشطة التجارية",
-    "sort": "ترتيب",
-    "filter": "تصفية",
-    "sort_newest": "الأحدث",
-    "sort_oldest": "الأقدم",
-    "sort_price_low": "السعر: من الأقل إلى الأعلى",
-    "sort_price_high": "السعر: من الأعلى إلى الأقل",
-    "category": "القسم",
-    "all_categories": "جميع الأقسام",
+  "AdForm": {
+    "title": "عنوان الإعلان",
+    "title_placeholder": "أدخل عنوان الإعلان",
+    "category": "قسم الإعلان",
+    "category_placeholder": "اختر القسم",
     "city": "المدينة",
-    "all_cities": "جميع المدن",
-    "price_range": "نطاق السعر",
-    "price_min": "الحد الأدنى",
-    "price_max": "الحد الأعلى",
-    "today_offers": "عروض اليوم فقط",
-    "apply_filters": "تطبيق",
-    "reset_filters": "إعادة تعيين",
-    "ads_title": "الإعلانات",
-    "companies_title": "الشركات",
-    "result_count": "نتيجة",
-    "no_results": "لا توجد نتائج",
+    "city_placeholder": "من فضلك اختر المدينة",
+    "description": "وصف الإعلان",
+    "description_subtext": "لمشاهدات أكثر للإعلان: أدخل تفاصيل ومعلومات أكثر عن المنتج أو الخدمة لتزيد من ترويج الإعلان",
+    "description_placeholder": "أدخل وصف الإعلان",
+    "images_title": "صور الخدمة أو المنتج",
+    "images_subtext": "لمشاهدات أكثر للإعلان: أدخل صور وفيديو واضح للمنتج أو الخدمة، صور من زوايا مختلفة.",
+    "location": "موقع المنتج أو الخدمه",
+    "location_subtext": "هل ترغب في إضافة موقع المنتج أو الخدمة؟ يفضل المستهلكين وضوح موقع المنتج أو الخدمة.",
+    "add_location": "إضافة موقع",
+    "price": "السعر",
+    "price_subtext": "أدخل سعر المنتج أو الخدمة",
+    "price_placeholder": "أدخل السعر",
+    "contact_methods": "وسائل الاتصال",
+    "email": "البريد الالكتروني",
+    "email_placeholder": "أدخل البريد الالكتروني",
+    "phone": "رقم الموبايل",
+    "phone_placeholder": "أدخل رقم الموبايل",
+    "contact_only_app": "التواصل عبر رسائل التطبيق فقط",
+    "publish_btn": "نشر الإعلان",
+    "success_msg": "تم نشر الإعلان بنجاح!",
+    "error_msg": "حدث خطأ أثناء نشر الإعلان. يرجى المحاولة مرة أخرى.",
+    "sub_category": "القسم الفرعي",
+    "select_sub_category": "اختر القسم الفرعي",
     "loading": "جاري التحميل...",
-    "currency": "AED",
+    "featured_ad": "إعلان مميز",
     "cities": {
-      "abu_dhabi": "أبوظبي",
-      "dubai": "دبي",
-      "sharjah": "الشارقة",
-      "ajman": "عجمان",
-      "umm_al_quwain": "أم القيوين",
-      "ras_al_khaimah": "رأس الخيمة",
-      "fujairah": "الفجيرة"
+      "1": "أبو ظبي",
+      "2": "دبي",
+      "3": "الشارقة",
+      "4": "عجمان",
+      "5": "أم القيوين",
+      "6": "رأس الخيمة",
+      "7": "الفجيرة",
+      "8": "العين",
+      "9": "الظفرة"
     }
+  },
+  "AddAd": {
+    "header_sub": "فرصتك للبيع تبدأ هنا",
+    "header_main": "أضف إعلانك الآن",
+    "tips_question": "تريد نصائح للحصول على أفضل نتيجة لإعلانك؟",
+    "click_here": "أنقر هنا"
+  },
+  "AdDetails": {
+    "title": "تفاصيل الإعلان",
+    "currency": "درهم",
+    "mobile": "رقم الموبايل",
+    "advertiser_type": "نوع المعلن",
+    "working_hours": "ساعات العمل",
+    "category": "القسم",
+    "published_at": "نُشر في: ",
+    "report_ad": "الإبلاغ عن الإعلان",
+    "not_specified": "غير محدد"
+  },
+  "Notifications": {
+    "no_notifications": "لا توجد إشعارات"
   }
 }

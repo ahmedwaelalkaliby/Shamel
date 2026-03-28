@@ -25,26 +25,14 @@ export const adService = {
     return response.data;
   },
 
-  searchAds: async (
-    locale: string,
-    params: SearchAdsParams,
-  ): Promise<AdsResponse> => {
-    const cleanParams = Object.fromEntries(
-      Object.entries(params).filter(
-        ([, v]) => v !== undefined && v !== null && v !== "",
-      ),
-    );
-    const response = await axiosInstance.get("/ads/ads/search", {
-      headers: { "Accept-Language": locale },
-      params: cleanParams,
-    });
-    return response.data;
-  },
-
-  getCommercialStores: async (locale: string) => {
-    const response = await axiosInstance.get("/user/commercial/store", {
-      headers: { "Accept-Language": locale },
+  createAd: async (formData: FormData, locale: string): Promise<any> => {
+    const response = await axiosInstance.post("/ads", formData, {
+      headers: { 
+        "Accept-Language": locale,
+        "Content-Type": "multipart/form-data" 
+      },
     });
     return response.data;
   },
 };
+
